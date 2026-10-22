@@ -1,0 +1,27 @@
+import contracts;
+
+export record Packet {
+    samples: [i64; 3],
+    adjustment: i64,
+}
+
+fn summarize_packet(value: Packet) -> i64 {
+    let samples: [i64; 3] = value.samples;
+    return samples[0] + samples[1] + samples[2] + value.adjustment;
+}
+
+fn forward_packet(value: Packet) -> Packet {
+    return value;
+}
+
+impl contracts::Summarize for Packet {
+    summarize = summarize_packet;
+}
+
+impl contracts::Forward for Packet {
+    forward = forward_packet;
+}
+
+export fn make() -> Packet {
+    return Packet { samples: [10, 20, 11], adjustment: 1 };
+}

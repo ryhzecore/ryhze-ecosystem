@@ -1,0 +1,35 @@
+---
+import Icon from '../ui/Icon.astro';
+import Button from '../ui/Button.astro';
+import PlatformCard from '../site/PlatformCard.astro';
+import { platforms, site } from '@/data/site';
+---
+
+<section class="platform-section container" aria-labelledby="platform-title">
+  <div class="platform-section-heading">
+    <h2 id="platform-title">Choose your platform</h2>
+    <span>All downloads are not available yet</span>
+  </div>
+  <div class="platform-grid">
+    {platforms.map((platform) => (
+      <PlatformCard platform={platform} />
+    ))}
+    <article class="platform-card platform-card--web">
+      <div class="platform-card-top">
+        <Icon name="globe" />
+        <span class="status">Still being built</span>
+      </div>
+      <h3>Your browser.</h3>
+      <p class="platform-description">A new home for Games and Films is taking shape.</p>
+      <Button href={site.appUrl}>Explore Entertainment</Button>
+      <p class="platform-note">
+        The entertainment website is still being built. The showcase is open to explore; playable
+        games and films are not available yet.
+      </p>
+    </article>
+  </div>
+  <p class="release-disclaimer">
+    No installers are available in this website version. Platform availability will be updated when
+    a release is ready.
+  </p>
+</section>

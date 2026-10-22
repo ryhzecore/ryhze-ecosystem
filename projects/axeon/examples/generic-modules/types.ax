@@ -1,0 +1,56 @@
+import contracts;
+
+export record Samples {
+    readings: [i64; 3],
+    marker: f64,
+}
+
+export union Batch {
+    Present { samples: Samples, adjustment: i64 },
+    Missing {},
+}
+
+export record Packet {
+    batch: Batch,
+    sequence: i64,
+}
+
+fn forward_packet(value: Packet) -> Packet {
+    return value;
+}
+
+fn summarize_packet(value: Packet) -> i64 {
+    let sequence: i64 = value.sequence;
+    let batch: Batch = value.batch;
+    match batch {
+        Batch::Present { samples: samples, adjustment: adjustment } => {
+            let readings: [i64; 3] = samples.readings;
+            if f64_bits(samples.marker) != -9223372036854775808 {
+                return -1;
+            }
+            return readings[0] + readings[1] + readings[2] + adjustment + sequence;
+        },
+        Batch::Missing {} => {
+            return sequence;
+        },
+    }
+}
+
+impl contracts::Forward for Packet {
+    forward = forward_packet;
+}
+
+impl contracts::Summarize for Packet {
+    summarize = summarize_packet;
+}
+
+export fn make() -> Packet {
+    let samples: Samples = Samples { readings: [10, 20, 8], marker: -0.0 };
+    let batch: Batch = Batch::Present { samples: samples, adjustment: 1 };
+    return Packet { batch: batch, sequence: 1 };
+}
+
+export fn empty() -> Packet {
+    let batch: Batch = Batch::Missing {};
+    return Packet { batch: batch, sequence: 5 };
+}

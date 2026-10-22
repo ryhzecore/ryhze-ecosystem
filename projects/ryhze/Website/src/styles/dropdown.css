@@ -1,0 +1,148 @@
+.dropdown {
+  position: relative;
+  flex-shrink: 0;
+}
+.dropdown > summary {
+  list-style: none;
+}
+.dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+.dropdown[open] {
+  z-index: 12;
+}
+.dropdown[open]:not([data-closing]) > summary {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--surface-shadow-hover);
+}
+.dropdown-frame {
+  position: absolute;
+  inset-block-start: calc(100% + 12px);
+  inset-inline-start: 0;
+  width: var(--frame-width);
+  max-width: calc(100vw - var(--gutter) * 2);
+  padding: var(--frame-padding);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-frame);
+  background: var(--color-surface-raised);
+  box-shadow: var(--frame-shadow);
+  text-align: start;
+  transform-origin: top center;
+}
+.dropdown--end .dropdown-frame {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+.dropdown-heading {
+  padding: 9px 12px 11px;
+  font-size: 0.75rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--color-subtle);
+}
+.dropdown-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: var(--item-padding);
+  min-height: 64px;
+  border-radius: var(--radius-item);
+  transition: background-color var(--duration) var(--ease);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.dropdown-item:hover,
+.dropdown-item:focus-visible {
+  background-color: #ffffff08;
+}
+.dropdown-item > .icon:first-child {
+  color: var(--color-accent-soft);
+  width: 21px;
+  height: 21px;
+}
+.dropdown-item span {
+  flex: 1;
+}
+.dropdown-item small {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-subtle);
+  margin-top: 4px;
+}
+.dropdown-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 7px 6px 0;
+  padding: 15px 6px 8px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  min-height: 48px;
+  transition: color var(--duration) var(--ease);
+}
+.dropdown-footer:hover {
+  color: var(--color-text);
+}
+.dropdown[data-closing] .dropdown-frame {
+  pointer-events: none;
+}
+.dropdown > summary > .icon {
+  transition: transform var(--duration-frame-exit) var(--ease-frame);
+}
+.dropdown[data-enhanced] > summary[aria-expanded='true'] > .icon,
+.dropdown:not([data-enhanced])[open] > summary > .icon {
+  transition-duration: var(--duration-frame-enter);
+  transform: rotate(180deg);
+}
+
+.dropdown--wide {
+  --frame-width: var(--frame-width-wide);
+  width: min(100%, var(--frame-width-wide));
+}
+.dropdown--wide > summary {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: var(--button-min-height);
+  white-space: normal;
+  text-align: start;
+  padding: var(--button-padding-block) var(--button-padding-inline);
+}
+.dropdown--wide .dropdown-frame {
+  width: 100%;
+  max-width: 100%;
+}
+.dropdown-content {
+  padding: var(--item-padding);
+  border-radius: var(--radius-item);
+}
+.dropdown-content p {
+  font-size: 0.875rem;
+  line-height: 1.85;
+}
+
+/* Phone menus use the page container as their containing block. A fixed
+   compact width right-aligned to the trigger produced unequal viewport gutters. */
+@media (max-width: 1024px) {
+  .header-inner {
+    position: relative;
+  }
+  .mobile-navigation.dropdown {
+    position: static;
+  }
+  .mobile-navigation > .dropdown-frame {
+    inset-inline: 0;
+    inset-block-start: calc(100% + 12px);
+    width: 100%;
+    max-width: 100%;
+  }
+}

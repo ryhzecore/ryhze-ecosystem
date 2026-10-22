@@ -1,0 +1,84 @@
+---
+import Icon from '../ui/Icon.astro';
+import PlatformDropdown from '../site/PlatformDropdown.astro';
+import { site, features, platforms } from '@/data/site';
+---
+
+<section class="experience section" id="experience" aria-labelledby="experience-title">
+  <div class="container">
+    <div class="experience-heading">
+      <p class="eyebrow">02 / The experience</p>
+      <h2 id="experience-title">
+        Your next world.
+        <br />
+        <span class="text-muted">Your way in.</span>
+      </h2>
+    </div>
+    <div class="feature-list">
+      {features.map((feature) => (
+        <div class="feature">
+          <Icon name={feature.icon} />
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+        </div>
+      ))}
+    </div>
+    <div class="device-panel">
+      <div class="device-copy">
+        <p class="eyebrow">Made for your screen</p>
+        <h3>Take Ryhze with you.</h3>
+        <p>
+          See which platforms are planned and follow the entertainment website as it takes shape.
+        </p>
+        <div class="actions">
+          <PlatformDropdown id="experience-platforms" />
+          <a class="button button--secondary" href={site.appUrl} data-platform-fallback>
+            Entertainment
+          </a>
+          <button
+            type="button"
+            class="button button--secondary"
+            data-platform-open="platform-entertainment"
+            data-platform-enhanced
+            hidden
+          >
+            Entertainment
+          </button>
+        </div>
+      </div>
+      <div class="device-list">
+        {platforms.map((platform) => (
+          <>
+            <button
+              type="button"
+              class="button button--secondary"
+              aria-haspopup="dialog"
+              data-platform-open={`platform-${platform.id}`}
+              data-platform-enhanced
+              hidden
+            >
+              <Icon name={platform.icon} />
+              <span>{platform.name}</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </>
+        ))}
+        <a class="button button--secondary" data-platform-fallback href="/downloads/">
+          View all platform availability &amp; details
+        </a>
+        <button
+          type="button"
+          class="button button--secondary"
+          data-platform-open="platforms"
+          aria-haspopup="dialog"
+          data-platform-enhanced
+          hidden
+        >
+          <span>See all platforms</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+      <p class="access-note">{site.accessNotice}</p>
+    </div>
+  </div>
+</section>

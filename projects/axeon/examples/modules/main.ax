@@ -1,0 +1,8 @@
+import math;
+import statistics;
+
+fn main() -> i64 {
+    print(math::twice(21));
+    print(statistics::total());
+    return 42;
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ryhze-website-tester-v009",
+  "main": "hosting/tester-worker.mjs",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "vars": {
+    "RYHZE_STAGE": "invited-accounts-preparation",
+    "RYHZE_RELEASE": "0.0.9"
+  },
+  "observability": {
+    "enabled": false
+  },
+  "send_metrics": false
+}

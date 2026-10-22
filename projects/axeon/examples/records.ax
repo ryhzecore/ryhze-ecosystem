@@ -1,0 +1,17 @@
+// Scalar fields have exact types; construction runs in the written order.
+record Reading {
+    count: i64,
+    total: f64,
+    valid: bool,
+}
+
+fn main() -> i64 {
+    let first: Reading = Reading { valid: true, total: 1.5, count: 1 };
+    let mut current: Reading = first;
+    current.count = current.count + 1;
+    current.total = current.total + 2.5;
+    if current.valid {
+        print(current.total); // f64:0x4010000000000000 (4.0)
+    }
+    return current.count; // 2; first is unavailable after its move.
+}

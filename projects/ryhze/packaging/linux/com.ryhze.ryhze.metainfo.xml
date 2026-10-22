@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.ryhze.ryhze</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LicenseRef-proprietary</project_license>
+  <name>Ryhze</name>
+  <summary>Explore Ryhze games and films in development</summary>
+  <description><p>A pre-alpha catalogue of Ryhze entertainment projects.</p></description>
+  <launchable type="desktop-id">com.ryhze.ryhze.desktop</launchable>
+  <releases><release version="0.0.3" date="2026-10-03"/></releases>
+</component>

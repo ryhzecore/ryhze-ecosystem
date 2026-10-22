@@ -1,0 +1,89 @@
+---
+import Icon from '../ui/Icon.astro';
+import WorldArtwork from './WorldArtwork.astro';
+import { exclusiveTitles } from '@/data/entertainment';
+interface Props {
+  category: 'games' | 'films';
+}
+const { category } = Astro.props;
+const selected = exclusiveTitles.find((title) => title.category === category)!;
+const headingId = (value: string) =>
+  value === 'larcenous-driftscape' ? 'title-dialog-heading' : 'film-dialog-heading';
+---
+
+<dialog
+  class="title-dialog detail-frame"
+  data-title-dialog
+  aria-labelledby={headingId(selected.id)}
+>
+  <div class="title-dialog-panel detail-frame-panel" data-title-panel>
+    <header class="title-dialog-header detail-frame-header">
+      <button
+        type="button"
+        class="button button--outline title-back frame-back"
+        data-close-title
+        autofocus
+      >
+        <Icon name="arrow" /> Back
+      </button>
+      <button
+        type="button"
+        class="button button--outline title-save frame-save"
+        data-save-title={selected.id}
+        data-save-name={selected.title}
+        hidden
+        aria-pressed="false"
+        aria-label={`Save ${selected.title} temporarily`}
+        aria-describedby="temporary-favourites-note"
+      >
+        <span data-save-label>Favourites</span>
+        <Icon name="plus" />
+      </button>
+    </header>
+    <div class="title-dialog-scroll detail-frame-scroll" data-title-scroll>
+      {exclusiveTitles.map((title) => (
+        <div
+          data-title-view={title.href.split('#')[1]}
+          data-title-id={title.id}
+          data-title-name={title.title}
+          data-category={title.category}
+          hidden={title.category !== category}
+        >
+          <div class="title-dialog-intro">
+            <p class="eyebrow">{title.status}</p>
+            <h2 id={headingId(title.id)}>{title.title}</h2>
+            {title.genres && (
+              <ul class="title-tags" aria-label="Genres">
+                {title.genres.map((genre) => (
+                  <li>{genre}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+          <figure class="title-dialog-art">
+            <div class="title-dialog-visual">
+              <WorldArtwork />
+            </div>
+            <figcaption>{title.mediaLabel}</figcaption>
+          </figure>
+          <div class="title-dialog-copy">
+            <p>{title.description}</p>
+            <dl class="title-facts">
+              {title.setting && (
+                <div>
+                  <dt>Setting</dt>
+                  <dd>{title.setting}</dd>
+                </div>
+              )}
+              <div>
+                <dt>Release</dt>
+                <dd>To be announced</dd>
+              </div>
+            </dl>
+            <p class="title-availability">{title.availability}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</dialog>

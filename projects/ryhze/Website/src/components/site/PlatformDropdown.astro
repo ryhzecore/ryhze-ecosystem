@@ -1,0 +1,27 @@
+---
+import Dropdown from '../ui/Dropdown.astro';
+import { platforms } from '@/data/site';
+interface Props {
+  id: string;
+  variant?: 'primary' | 'outline';
+  align?: 'start' | 'end';
+}
+const { id, variant = 'primary', align = 'start' } = Astro.props;
+const items = platforms.map((p) => ({
+  label: p.name,
+  href: `/downloads/#${p.id}`,
+  description: p.status,
+  icon: p.icon,
+}));
+---
+
+<Dropdown
+  class="platform-dropdown"
+  id={id}
+  label="Platforms"
+  heading="Choose your platform"
+  items={items}
+  footer={{ label: 'See all platforms', href: '/downloads/' }}
+  variant={variant}
+  align={align}
+/>

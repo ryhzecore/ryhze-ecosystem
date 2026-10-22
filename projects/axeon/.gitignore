@@ -1,0 +1,13 @@
+/target/
+/.tools/
+/out/
+*.tmp
+__pycache__/
+/benchmarks/results/matplotlib-cache/
+/benchmarks/results/partial.json
+/benchmarks/integer-0.3/matplotlib-cache/
+/benchmarks/integer-0.3/partial.json
+/benchmarks/social-0.2/.mpl-cache/
+/evidence/0.4/numerics-oracle/*.rlib
+/evidence/0.4/numerics-oracle/rust-O[023]
+/evidence/0.4/numerics-oracle/cpp-O[023]

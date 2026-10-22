@@ -1,0 +1,7 @@
+# RACE C++ layout, matching the existing src/ style. Formatting only: never
+# reorder includes or rewrap comments, which can carry exact evidence text.
+BasedOnStyle: LLVM
+ColumnLimit: 110
+SortIncludes: Never
+ReflowComments: false
+BreakStringLiterals: false

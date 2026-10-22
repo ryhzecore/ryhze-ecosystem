@@ -1,0 +1,28 @@
+import packets;
+
+fn main() -> i64 { return 0; }
+
+fn test_exact_array_payload() -> i64 {
+    let input: [i64; 2] = [9007199254740993, 42];
+    let packet: packets::Packet<[i64; 2]> = packets::pack::<[i64; 2]>(1, input);
+    let fallback: [i64; 2] = [0, 0];
+    let values: [i64; 2] = packets::payload_or::<[i64; 2]>(packet, fallback);
+    if values[0] == 9007199254740993 && values[1] == 42 { return 0; }
+    return 1;
+}
+
+fn test_absent_payload_retains_negative_zero() -> i64 {
+    let absent: packets::Packet<f64> = packets::Packet::<f64>::Missing { sequence: 2 };
+    let value: f64 = packets::payload_or::<f64>(absent, -0.0);
+    if f64_bits(value) == -9223372036854775808 { return 0; }
+    return 1;
+}
+
+fn test_nested_generic_payload() -> i64 {
+    let inner: packets::Sample<i64> = packets::Sample::<i64> { sequence: 3, payload: 42 };
+    let packet: packets::Packet<packets::Sample<i64>> = packets::pack::<packets::Sample<i64>>(4, inner);
+    let fallback: packets::Sample<i64> = packets::Sample::<i64> { sequence: 0, payload: 0 };
+    let value: packets::Sample<i64> = packets::payload_or::<packets::Sample<i64>>(packet, fallback);
+    if value.sequence == 3 && value.payload == 42 { return 0; }
+    return 1;
+}

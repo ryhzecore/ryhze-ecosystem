@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "product": "ryhze-website",
+  "version": "0.0.5",
+  "stage": "PRE-ALPHA",
+  "status": "published",
+  "tested_source": "ecf855931d55c4af79e3c9732282105ac279c656",
+  "source_tree": "b79f7c6d1f5361168484fe0f6725b3aa8694a8e0",
+  "prepublication_receipt": "f97b8a220a8e6dfe439f9b2aa6da96a518bb7158",
+  "worker": "ryhze-website-public",
+  "serving_version_id": "c0b0db47-0a62-431f-9ac1-025d41178e72",
+  "deployment_id": "707c9e43-63af-4e3a-8e98-13a2278a15da",
+  "deployed_at_utc": "2026-10-11T06:23:07.504757Z",
+  "immediate_rollback": "7016ecf9-7218-440b-8c43-bcfc5c73b011",
+  "publication_authorization": {
+    "scope": "Explicit user instruction to verify and publish Cloud's latest prepared website changes through the existing approved deployment route"
+  },
+  "artifact_inventory_sha256": "aac68ad207dbe3cb68b69a6e6f6729800a0554f886aa9237b02e8bdb39e61bc9",
+  "detailed_receipt": "../../docs/updates/cloud-website-publication-2026-10-11.json",
+  "previous_publication": "../../docs/evidence/cloud-website-publication-2026-10-11/previous-publication.json",
+  "previous_review_snapshot": "current-candidate.json",
+  "original_deployment_receipt": "release.json",
+  "historical_tag_moved": false,
+  "tag_or_release_created": false,
+  "mvp_target": "0.1.0",
+  "mvp_readiness_authority": "Leo"
+}

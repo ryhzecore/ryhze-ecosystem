@@ -1,0 +1,74 @@
+@font-face {
+  font-family: Inter;
+  src: url('/fonts/Inter.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/fonts/SpaceGrotesk.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+:root {
+  color-scheme: dark;
+  --color-bg: #000000;
+  --color-surface: #111111;
+  --color-surface-raised: #181818;
+  --color-text: #f7f7f7;
+  --color-muted: #c1c1c1;
+  --color-subtle: #a2a2a2;
+  --color-accent: #ffffff;
+  --color-accent-soft: #e6e6e6;
+  --color-primary: #ffffff;
+  --color-on-primary: #090909;
+  --color-primary-hover: #e6e6e6;
+  --color-border: #323232;
+  --font-body: Inter, system-ui, sans-serif;
+  --font-heading: Space Grotesk, Inter, system-ui, sans-serif;
+  --container: 100%;
+  --space-copy: 12px;
+  --space-cta: 24px;
+  --space-actions: 16px;
+  --button-padding-block: 14px;
+  --button-padding-inline: 24px;
+  --button-min-height: 52px;
+  --button-icon-gap: 12px;
+  --gutter: clamp(20px, 4.5vw, 88px);
+  --radius-panel: 32px;
+  --radius-thumbnail: var(--radius-panel);
+  --radius-card: var(--radius-panel);
+  --radius-pill: 999px;
+  --radius-frame: var(--radius-panel);
+  --radius-item: calc(var(--radius-frame) - var(--frame-padding));
+  --frame-padding: 8px;
+  --frame-width-compact: 330px;
+  --frame-width-wide: 640px;
+  --frame-width: var(--frame-width-compact);
+  --item-padding: 14px;
+  --frame-shadow: 0 10px 28px #0006, inset 0 1px 0 #ffffff04;
+  --button-shadow: 0 3px 8px #0004, inset 0 1px 0 #ffffff04;
+  --surface-shadow: 0 6px 18px #0004, inset 0 1px 0 #ffffff03;
+  --surface-shadow-hover: 0 10px 24px #0006, inset 0 1px 0 #ffffff06;
+  --color-border-hover: #585858;
+  --color-surface-hover: #262626;
+  --duration: 450ms;
+  --duration-surface: 550ms;
+  --duration-frame-enter: 360ms;
+  --duration-frame-exit: 280ms;
+  --ease-frame: var(--ease);
+  --ease: cubic-bezier(0.22, 0.68, 0.18, 1);
+}
+
+@media (max-width: 700px) {
+  :root {
+    --gutter: 22px;
+  }
+}
+@media (max-width: 350px) {
+  :root {
+    --gutter: 16px;
+  }
+}

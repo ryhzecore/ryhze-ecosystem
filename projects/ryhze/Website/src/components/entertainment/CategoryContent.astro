@@ -1,0 +1,60 @@
+---
+import Icon from '../ui/Icon.astro';
+import WorldArtwork from './WorldArtwork.astro';
+import ExclusiveShowcase from './ExclusiveShowcase.astro';
+import { exclusiveTitles } from '@/data/entertainment';
+interface Props {
+  category: 'games' | 'films';
+}
+const { category } = Astro.props;
+const label = category === 'games' ? 'Games' : 'Films';
+const titles = exclusiveTitles.filter((title) => title.category === category);
+---
+
+<div data-category-content={category}>
+  <ExclusiveShowcase category={category} />
+  <section
+    class="entertainment-catalog container"
+    id={category === 'films' ? 'film-catalog' : undefined}
+    aria-labelledby="catalog-title"
+  >
+    <div class="entertainment-catalog-heading">
+      <div>
+        <p class="eyebrow">{label}</p>
+        <h2 id="catalog-title">In development.</h2>
+      </div>
+      <span class="status">{String(titles.length).padStart(2, '0')} title in development</span>
+    </div>
+    <div class="entertainment-game-grid">
+      {titles.map((title) => (
+        <article class="entertainment-game-card" aria-label={title.title}>
+          <a
+            class="entertainment-thumbnail"
+            href={`#${title.href.split('#')[1]}`}
+            aria-label={`Explore ${title.title}`}
+          >
+            <WorldArtwork />
+            <span class="thumbnail-brand">Ryhze {label}</span>
+            <span class="thumbnail-title">{title.title}</span>
+            <Icon name="arrow" class="thumbnail-arrow" />
+          </a>
+        </article>
+      ))}
+    </div>
+    {titles.map((title) => (
+      <details class="entertainment-game-details" id={title.href.split('#')[1]}>
+        <summary>About {title.title}</summary>
+        <div class="entertainment-game-info">
+          <h3 id={category === 'games' ? 'game-title' : 'film-title'}>{title.title}</h3>
+          <p>{title.summary}</p>
+          <p class="entertainment-availability">{title.availability}</p>
+          <div class="actions">
+            <button type="button" class="button button--outline" disabled>
+              Not available yet
+            </button>
+          </div>
+        </div>
+      </details>
+    ))}
+  </section>
+</div>

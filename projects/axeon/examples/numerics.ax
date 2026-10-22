@@ -1,0 +1,22 @@
+// Sequential binary64 dot product; each multiplication and addition rounds
+// separately. These exact dyadic inputs produce 5.5.
+fn dot_example() -> f64 {
+    let a: [f64; 4] = [1.0, 2.0, 3.0, 4.0];
+    let b: [f64; 4] = [0.5, -1.0, 2.0, 0.25];
+    let x: &[f64] = &a;
+    let y: &[f64] = &b;
+    let mut sum: f64 = 0.0;
+    let mut i: i64 = 0;
+    while i < len(x) {
+        sum = sum + x[i] * y[i];
+        i = i + 1;
+    }
+    return sum;
+}
+
+fn main() -> i64 {
+    print(dot_example());  // f64:0x4016000000000000 (5.5)
+    print(-0.0);          // sign is preserved
+    print(0.0 / 0.0);     // NaN is canonically observed
+    return 0;
+}

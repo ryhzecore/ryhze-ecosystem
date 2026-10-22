@@ -1,0 +1,11 @@
+export fn total() -> f64 {
+    let mut result: f64 = 0.0;
+    tensor_scope(128) {
+        let values: [f64; 3] = [1.0, 2.0, 3.0];
+        let data: tensor = try tensor_from_array([3], values);
+        result = try tensor_sum(data);
+    } catch (error: tensor_error) {
+        print(tensor_error_code(error));
+    }
+    return result;
+}

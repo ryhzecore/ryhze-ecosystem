@@ -1,0 +1,6 @@
+/out/
+/evidence/local/
+*.core
+/core
+__pycache__/
+*.pyc

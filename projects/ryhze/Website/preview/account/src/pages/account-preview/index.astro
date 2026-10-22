@@ -1,0 +1,472 @@
+---
+import '../../../../../src/styles/tokens.css';
+import '../../styles/account.css';
+const screens = [
+  ['invitation', 'Invitation'],
+  ['sign-in', 'Sign in'],
+  ['sign-up', 'Create account'],
+  ['verify-email', 'Verify email'],
+  ['forgot-password', 'Forgot password'],
+  ['reset-password', 'Reset password'],
+  ['profile', 'Your profile'],
+  ['unavailable', 'Link unavailable'],
+];
+const googleIcon = `<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M21.6 12.2c0-.7-.1-1.5-.2-2.2H12v4h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.8 3-4.3 3-7.3ZM12 22c2.7 0 5-.9 6.6-2.5L15.4 17c-.9.6-2 1-3.4 1a6 6 0 0 1-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22ZM6.4 13.9a6 6 0 0 1 0-3.8V7.5H3.1a10 10 0 0 0 0 9l3.3-2.6ZM12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A9.6 9.6 0 0 0 12 2a10 10 0 0 0-8.9 5.5l3.3 2.6A6 6 0 0 1 12 6Z"/></svg>`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; object-src 'none'; base-uri 'none'"
+    />
+    <title>Account design preview | Ryhze</title>
+    <link rel="icon" type="image/png" href="/brand/web/favicon-32.png" />
+  </head>
+  <body>
+    <a href="#account-card" class="skip-link">
+      Skip to account screen
+    </a>
+    <header class="account-header">
+      <a class="wordmark" href="/" aria-label="Ryhze home">
+        RYHZE<span aria-hidden="true">®</span>
+      </a>
+      <a class="back-link" href="/">
+        ← Back to preview
+      </a>
+    </header>
+    <main class="account-layout">
+      <aside class="account-intro" aria-label="About Ryhze accounts">
+        <span class="eyebrow">
+          <span class="blue-dot" aria-hidden="true"></span> INVITATION ONLY
+        </span>
+        <h1>
+          A place
+          <br />
+          to begin<span class="accent">.</span>
+        </h1>
+        <p class="intro-copy">
+          Your account. Your identity.
+          <br />A first look at what comes next.
+        </p>
+        <ol class="account-steps" aria-label="Account setup steps">
+          <li data-progress="invitation">
+            <span>01</span>
+            <div>
+              Open your invitation<small>A personal link from Ryhze</small>
+            </div>
+          </li>
+          <li data-progress="account">
+            <span>02</span>
+            <div>
+              Make it yours<small>Verified email, secure sign-in</small>
+            </div>
+          </li>
+          <li data-progress="profile">
+            <span>03</span>
+            <div>
+              Choose your identity<small>Your nickname and unique user ID</small>
+            </div>
+          </li>
+        </ol>
+        <p class="identity-note">
+          <svg
+            viewBox="0 0 24 24"
+            width="18"
+            height="18"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <path d="m12 3 8 3v6c0 4-4 7-8 9-4-2-8-5-8-9V6Z" />
+            <path d="m8 12 3 3 5-6" />
+          </svg>{' '}
+          Your Ryhze profile starts with you
+        </p>
+      </aside>
+      <div class="account-column">
+        <div class="preview-notice" role="note">
+          <span class="preview-label">DESIGN PREVIEW</span>
+          <p>
+            These screens are for review. Fields are disabled. No accounts, emails or passwords are
+            created or sent.
+          </p>
+        </div>
+        <section
+          id="account-card"
+          class="account-card"
+          tabindex="-1"
+          aria-label="Account design screens"
+        >
+          <div class="card-topline">
+            <span class="eyebrow">RYHZE ACCOUNT</span>
+            <span class="card-counter" id="screen-counter" aria-hidden="true">
+              01 / 08
+            </span>
+          </div>
+          <section data-screen="invitation" aria-labelledby="invitation-title">
+            <div class="screen-symbol" aria-hidden="true">
+              ↗
+            </div>
+            <h2 id="invitation-title" tabindex="-1">
+              You’re invited.
+            </h2>
+            <p class="screen-copy">
+              A first look. A fresh perspective.
+              <br />
+              Your Ryhze account begins here.
+            </p>
+            <div class="detail-box">
+              <span class="detail-label">INVITED EMAIL · EXAMPLE</span>
+              <strong>invited@example.test</strong>
+              <p>Use the email address your invitation was sent to.</p>
+            </div>
+            <a
+              class="primary active-link"
+              data-go="sign-up"
+              href="?screen=sign-up"
+              id="invitation-continue"
+            >
+              Preview account setup <span aria-hidden="true">→</span>
+            </a>
+            <p class="under-button">
+              Already have an account?{' '}
+              <a data-go="sign-in" href="?screen=sign-in">
+                Sign in
+              </a>
+            </p>
+            <p class="card-fine">
+              Invitation links will be single-use and time-limited. Previewing account setup does
+              not redeem an invitation or create an account.
+            </p>
+          </section>
+          <section data-screen="sign-in" aria-labelledby="sign-in-title" hidden>
+            <h2 id="sign-in-title" tabindex="-1">
+              Welcome back.
+            </h2>
+            <p class="screen-copy">Pick up where you left off.</p>
+            <button class="google" type="button" disabled>
+              <Fragment set:html={googleIcon} />
+              Continue with Google
+            </button>
+            <p class="provider-note">Google is paused until email-only permissions are verified.</p>
+            <div class="divider">
+              <span>or use your email</span>
+            </div>
+            <div class="field">
+              <label for="signin-email">Email address</label>
+              <input
+                id="signin-email"
+                type="email"
+                placeholder="you@example.com"
+                disabled
+                autocomplete="off"
+              />
+            </div>
+            <div class="field">
+              <div class="field-label">
+                <label for="signin-password">Password</label>
+                <a data-go="forgot-password" href="?screen=forgot-password">
+                  Forgot password?
+                </a>
+              </div>
+              <input
+                id="signin-password"
+                type="password"
+                placeholder="Your password"
+                disabled
+                autocomplete="off"
+              />
+            </div>
+            <button class="primary" type="button" disabled>
+              Sign in <span aria-hidden="true">→</span>
+            </button>
+            <p class="card-fine">
+              New here? Start from your invitation link. There is no public account registration.
+            </p>
+          </section>
+          <section data-screen="sign-up" aria-labelledby="sign-up-title" hidden>
+            <h2 id="sign-up-title" tabindex="-1">
+              Make it yours.
+            </h2>
+            <p class="screen-copy">Create your invited Ryhze account.</p>
+            <button class="google" type="button" disabled>
+              <Fragment set:html={googleIcon} />
+              Continue with Google
+            </button>
+            <p class="provider-note">Email only. No Google name or photo will be imported.</p>
+            <div class="divider">
+              <span>or use your email</span>
+            </div>
+            <div class="field">
+              <label for="signup-email">
+                Invited email address <span class="required">Required</span>
+              </label>
+              <input
+                id="signup-email"
+                type="email"
+                value="invited@example.test"
+                disabled
+                autocomplete="off"
+              />
+              <p class="field-help">Your invitation must match your verified email.</p>
+            </div>
+            <div class="field">
+              <label for="signup-password">Password</label>
+              <input
+                id="signup-password"
+                type="password"
+                placeholder="Create a strong password"
+                disabled
+                autocomplete="off"
+              />
+            </div>
+            <div class="field">
+              <label for="signup-confirm">Confirm password</label>
+              <input
+                id="signup-confirm"
+                type="password"
+                placeholder="Enter the same password"
+                disabled
+                autocomplete="off"
+              />
+            </div>
+            <button class="primary" type="button" disabled>
+              Create account <span aria-hidden="true">→</span>
+            </button>
+            <p class="under-button">
+              Already set up?{' '}
+              <a data-go="sign-in" href="?screen=sign-in">
+                Sign in
+              </a>
+            </p>
+            <p class="card-fine">
+              Account setup does not unlock private content. Any required testing agreements come
+              separately.
+            </p>
+          </section>
+          <section data-screen="verify-email" aria-labelledby="verify-email-title" hidden>
+            <div class="screen-symbol" aria-hidden="true">
+              @
+            </div>
+            <h2 id="verify-email-title" tabindex="-1">
+              Check your inbox.
+            </h2>
+            <p class="screen-copy">
+              Your email verification step will appear here. No email has been sent in this preview.
+            </p>
+            <div class="detail-box">
+              <span class="detail-label">INVITED EMAIL · EXAMPLE</span>
+              <strong>invited@example.test</strong>
+            </div>
+            <div class="field">
+              <label for="verify-code">Verification code</label>
+              <input
+                class="code-input"
+                id="verify-code"
+                type="text"
+                inputmode="numeric"
+                placeholder="Enter your code"
+                disabled
+                autocomplete="off"
+              />
+              <p class="field-help">Use the newest code from your verification email.</p>
+            </div>
+            <button class="primary" type="button" disabled>
+              Verify email <span aria-hidden="true">→</span>
+            </button>
+            <button class="text-button" type="button" disabled>
+              Send a new code
+            </button>
+            <p class="card-fine">
+              Verification and resend will be handled by the configured authentication provider.
+            </p>
+          </section>
+          <section data-screen="forgot-password" aria-labelledby="forgot-password-title" hidden>
+            <a class="screen-back" data-go="sign-in" href="?screen=sign-in">
+              ← Back to sign in
+            </a>
+            <h2 id="forgot-password-title" tabindex="-1">
+              A fresh start.
+            </h2>
+            <p class="screen-copy">Enter your account email to request a password reset.</p>
+            <div class="field">
+              <label for="forgot-email">Email address</label>
+              <input
+                id="forgot-email"
+                type="email"
+                placeholder="you@example.com"
+                disabled
+                autocomplete="off"
+              />
+            </div>
+            <button class="primary" type="button" disabled>
+              Request reset code <span aria-hidden="true">→</span>
+            </button>
+            <div class="hint-box">
+              When enabled, the same response will be shown whether an account exists or not.
+            </div>
+            <p class="card-fine">
+              No reset request can be made in this preview. Google-only accounts will continue to
+              sign in through Google.
+            </p>
+          </section>
+          <section data-screen="reset-password" aria-labelledby="reset-password-title" hidden>
+            <a class="screen-back" data-go="sign-in" href="?screen=sign-in">
+              ← Back to sign in
+            </a>
+            <h2 id="reset-password-title" tabindex="-1">
+              Reset your password.
+            </h2>
+            <p class="screen-copy">Use your email code and choose a new password.</p>
+            <div class="field">
+              <label for="reset-code">Reset code</label>
+              <input
+                id="reset-code"
+                type="text"
+                inputmode="numeric"
+                placeholder="Code from your email"
+                disabled
+                autocomplete="off"
+              />
+            </div>
+            <div class="field">
+              <label for="reset-password">New password</label>
+              <input
+                id="reset-password"
+                type="password"
+                placeholder="Create a strong password"
+                disabled
+                autocomplete="off"
+              />
+            </div>
+            <div class="field">
+              <label for="reset-confirm">Confirm new password</label>
+              <input
+                id="reset-confirm"
+                type="password"
+                placeholder="Enter the same password"
+                disabled
+                autocomplete="off"
+              />
+            </div>
+            <button class="primary" type="button" disabled>
+              Update password <span aria-hidden="true">→</span>
+            </button>
+            <p class="card-fine">
+              The provider must validate the code and update the credential before this flow can
+              complete.
+            </p>
+          </section>
+          <section data-screen="profile" aria-labelledby="profile-title" hidden>
+            <div class="profile-mark" aria-hidden="true">
+              R<span>✦</span>
+            </div>
+            <h2 id="profile-title" tabindex="-1">
+              Hello, you.
+            </h2>
+            <p class="screen-copy">Choose how you show up on Ryhze.</p>
+            <div class="field">
+              <label for="profile-nickname">Nickname</label>
+              <input
+                id="profile-nickname"
+                type="text"
+                value="Your name ✦"
+                disabled
+                autocomplete="off"
+              />
+              <p class="field-help">
+                Capitals, spaces, symbols and emoji. Your own style, up to 80 characters.
+              </p>
+            </div>
+            <div class="field">
+              <label for="profile-userid">Unique user ID</label>
+              <div class="prefixed-field">
+                <span aria-hidden="true">@</span>
+                <input
+                  id="profile-userid"
+                  type="text"
+                  value="your.id"
+                  disabled
+                  autocomplete="off"
+                />
+              </div>
+              <p class="field-help">
+                1–64 lowercase letters, numbers, dots or underscores. Availability will be checked
+                on the server.
+              </p>
+            </div>
+            <button class="primary" type="button" disabled>
+              Save profile <span aria-hidden="true">→</span>
+            </button>
+            <p class="card-fine">
+              Your nickname and user ID are chosen here. Neither is imported from Google. This
+              example does not reserve a user ID.
+            </p>
+          </section>
+          <section data-screen="unavailable" aria-labelledby="unavailable-title" hidden>
+            <div class="screen-symbol neutral" aria-hidden="true">
+              ↗
+            </div>
+            <h2 id="unavailable-title" tabindex="-1">
+              Let’s get you a new link.
+            </h2>
+            <p class="screen-copy">
+              This invitation can’t be used. It may have expired, been withdrawn or already been
+              redeemed.
+            </p>
+            <div class="hint-box">
+              Ask the person who invited you for a fresh link. Already created your account? Sign in
+              with your invited email.
+            </div>
+            <a class="primary active-link" data-go="sign-in" href="?screen=sign-in">
+              View sign-in screen <span aria-hidden="true">→</span>
+            </a>
+            <p class="card-fine">
+              Example error state. No invitation was checked and no account details are shown.
+            </p>
+          </section>
+          <div class="screen-review">
+            <span id="review-caption">Review the next screen</span>
+            <a id="next-screen" data-go="sign-up" href="?screen=sign-up">
+              Preview create account <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+        <nav class="screen-picker" aria-label="Preview account screens">
+          {screens.map(([id, label]) => (
+            <a
+              href={`?screen=${id}`}
+              data-go={id}
+              aria-current={id === 'invitation' ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+        <p id="preview-status" class="sr-only" role="status" aria-live="polite"></p>
+        <noscript>
+          <p class="no-script">
+            JavaScript is needed to switch preview screens. All account actions remain disabled.
+          </p>
+        </noscript>
+      </div>
+    </main>
+    <footer class="account-footer">
+      <span>RYHZE · V0.1.0 DEVELOPMENT</span>
+      <span>
+        Real sign-in will be enabled only after secure provider setup and end-to-end checks.
+      </span>
+    </footer>
+    <script>
+      import '../../scripts/account-preview';
+    </script>
+  </body>
+</html>

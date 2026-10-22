@@ -1,0 +1,19 @@
+import contracts;
+
+fn forward<T: contracts::Forward>(value: T) -> T {
+    return contracts::Forward::forward(value);
+}
+
+fn processing_fee(subtotal: i64) -> i64 {
+    return subtotal + 2;
+}
+
+export fn invoice<T: contracts::Forward + contracts::Summarize>(value: T) -> i64 {
+    let ready: T = forward::<T>(value);
+    let subtotal: i64 = contracts::Summarize::summarize(ready);
+    return processing_fee(subtotal);
+}
+
+export fn identity<T>(value: T) -> T {
+    return value;
+}

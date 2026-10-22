@@ -1,0 +1,126 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import Button from '@/components/ui/Button.astro';
+import ArchitectureFlow from '@/components/race/ArchitectureFlow.astro';
+import { sceneMilestone, assetsMilestone, vfxMilestone, physicsMilestone, audioMilestone, atmosphereMilestone } from '@/data/race';
+---
+
+<SiteLayout
+  title="RACE Engine · Ryhze"
+  description="RACE Engine: implemented Linux Core, signed-off first Linux headless Scene & World and Assets & Resources milestones, and future engine areas."
+  active="race"
+>
+  <div class="container race-page">
+    <header class="race-hero">
+      <p class="eyebrow">Ryhze / Engine development</p>
+      <h1>RACE Engine</h1>
+      <p>
+        RACE is an engine in development for games and films. The current Linux implementation
+        includes an experimental software-rendered 3D scene. A graphical editor and shipping
+        renderer remain Under Development.
+      </p>
+      <div class="actions">
+        <Button wrap href="/race/architecture/" icon="arrow">
+          View architecture
+        </Button>
+        <Button wrap href="#race-status" variant="outline">
+          Development status
+        </Button>
+      </div>
+    </header>
+    <nav class="race-contents" aria-label="RACE page sections">
+      <a href="#race-core">Core</a>
+      <a href="#race-scene">Scene &amp; World</a>
+      <a href="#race-architecture">Architecture</a>
+      <a href="#race-status">Development Status</a>
+    </nav>
+    <div class="race-summaries">
+      <section id="race-core" class="race-card" aria-labelledby="core-title">
+        <p class="eyebrow">Implemented and tested on Linux</p>
+        <h2 id="core-title">Core</h2>
+        <p>
+          Core provides the shared services used by engine modules: foundation types, platform
+          abstraction, memory, jobs, timing, configuration, diagnostics and runtime lifecycle.
+        </p>
+        <p>
+          It tracks memory ownership, schedules work with dependencies and cancellation, and
+          supports fixed-step simulation and exact offline timing. Startup and shutdown follow
+          service dependencies.
+        </p>
+      </section>
+      <section id="race-scene" class="race-card" aria-labelledby="scene-title">
+        <p class="eyebrow">{sceneMilestone.status}</p>
+        <h2 id="scene-title">Scene &amp; World</h2>
+        <p>
+          Scene &amp; World organises objects, their hierarchy and transforms. The first headless
+          Linux implementation includes edits and undo, templates, and scene serialization.
+        </p>
+        <p>{sceneMilestone.summary} This is not a graphical editor or a completed engine.</p>
+      </section>
+    </div>
+    <section class="race-section" id="race-architecture" aria-labelledby="architecture-title">
+      <div class="race-heading">
+        <h2 id="architecture-title">Architecture</h2>
+        <p>
+          Core is the shared foundation. Scene &amp; World, Assets &amp; Resources and future
+          runtime areas branch from it independently. Authoring tools, packaging and project outputs
+          appear below as later areas.
+        </p>
+      </div>
+      <ArchitectureFlow compact />
+      <div class="actions">
+        <Button wrap href="/race/architecture/" icon="arrow">
+          View all services and areas
+        </Button>
+      </div>
+    </section>
+    <section class="race-section" id="race-status" aria-labelledby="status-title">
+      <div class="race-heading">
+        <h2 id="status-title">Development Status</h2>
+      </div>
+      <dl class="race-status-list">
+        <div>
+          <dt>Core</dt>
+          <dd>Implemented and tested on Linux.</dd>
+        </div>
+        <div>
+          <dt>Scene &amp; World</dt>
+          <dd>{sceneMilestone.summary}</dd>
+        </div>
+        <div>
+          <dt>Assets &amp; Resources</dt>
+          <dd>
+            {assetsMilestone.summary} {assetsMilestone.capability} {assetsMilestone.limits}
+          </dd>
+        </div>
+        <div>
+          <dt>Graphics &amp; Rendering</dt>
+          <dd>
+            The first small software-rendered 3D milestone is signed off after source and evidence
+            review. It includes indexed meshes, camera movement, depth, materials and directional
+            lighting. Scene and resource lifetimes, render completion, readback and bounded memory
+            have been tested. Validation covers CPU/software rendering only. Hardware rendering, ray
+            tracing and path tracing remain future work. Full Graphics &amp; Rendering remains{' '}
+            <strong>Under Development</strong>.
+          </dd>
+        </div>
+        <div>
+          <dt>Future areas</dt>
+          <dd>
+            <strong>Under Development</strong>. This label includes areas whose detailed scope is
+            not yet planned; it does not mean an implementation is available. {vfxMilestone.progress} {physicsMilestone.progress} {audioMilestone.progress} {atmosphereMilestone.progress}
+          </dd>
+        </div>
+      </dl>
+      <p class="race-note">
+        The shared architecture targets Windows, Linux and macOS, with later Android and iOS game
+        exports. Only Linux is currently implemented and tested. Other platforms and exports are
+        Under Development.
+      </p>
+      <p class="race-note">
+        There is no public engine download or announced release date. Experimental scheduler and
+        lookup changes are not adopted features.
+      </p>
+    </section>
+  </div>
+</SiteLayout>

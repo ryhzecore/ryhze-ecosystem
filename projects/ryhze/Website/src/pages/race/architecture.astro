@@ -1,0 +1,56 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import Button from '@/components/ui/Button.astro';
+import ArchitectureFlow from '@/components/race/ArchitectureFlow.astro';
+import { sceneMilestone, assetsMilestone } from '@/data/race';
+---
+
+<SiteLayout
+  title="RACE Architecture · Ryhze"
+  description="RACE Core and the signed-off first Linux headless Scene & World and Assets & Resources milestones, alongside future runtime areas, authoring and exports. Only Linux is implemented and tested."
+  active="race"
+>
+  <div class="container race-page">
+    <header class="race-hero">
+      <a class="race-back" href="/race/">
+        RACE Engine / Overview
+      </a>
+      <h1>Architecture</h1>
+      <p>
+        Core supplies eight shared services. The first Linux headless milestones for Scene &amp;
+        World and Assets &amp; Resources are reviewed and signed off.
+      </p>
+      <p>
+        The connections below describe the engine's areas, not approved module dependencies. Future
+        runtime areas branch from the same shared foundation. None is shown as depending on the area
+        beside it or on Scene &amp; World.
+      </p>
+    </header>
+    <ArchitectureFlow />
+    <section class="race-section" aria-labelledby="architecture-status">
+      <div class="race-heading">
+        <h2 id="architecture-status">Development Status</h2>
+      </div>
+      <p class="race-note">
+        Core is implemented and tested on Linux. Scene &amp; World: {sceneMilestone.summary} Every
+        future area is marked Under Development, including areas whose detailed scope is not yet
+        planned.
+      </p>
+      <p class="race-note">
+        Assets &amp; Resources: {assetsMilestone.summary} {assetsMilestone.capability}{' '}
+        {assetsMilestone.limits}
+      </p>
+      <p class="race-note">
+        The shared architecture targets desktop Windows, Linux and macOS. Later game exports target
+        Android and iOS. Only Linux is currently implemented and tested; other platforms and exports
+        are Under Development.
+      </p>
+      <p class="race-note">There is no public engine download or announced release date.</p>
+      <div class="actions">
+        <Button wrap href="/race/" variant="outline" icon="arrow">
+          Back to RACE Engine
+        </Button>
+      </div>
+    </section>
+  </div>
+</SiteLayout>

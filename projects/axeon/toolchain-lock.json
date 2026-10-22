@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "rust": "1.85.0",
+  "clang": "19.1.7",
+  "target": "x86_64-pc-linux-gnu",
+  "rust_components": [
+    {
+      "component": "rustc",
+      "url": "https://static.rust-lang.org/dist/2025-02-20/rustc-1.85.0-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "7436f13797475082cd87aa65547449e01659d6a810b4cd5f8aedc48bb9f89dfb"
+    },
+    {
+      "component": "cargo",
+      "url": "https://static.rust-lang.org/dist/2025-02-20/cargo-1.85.0-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "0aff33b57b0e0b102d762a2b53042846c1ca346cff4b7bd96b5c03c9e8e51d81"
+    },
+    {
+      "component": "rust-std",
+      "url": "https://static.rust-lang.org/dist/2025-02-20/rust-std-1.85.0-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "285e105d25ebdf501341238d4c0594ecdda50ec9078f45095f793a736b1f1ac2"
+    },
+    {
+      "component": "rustfmt-preview",
+      "url": "https://static.rust-lang.org/dist/2025-02-20/rustfmt-1.85.0-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "99e3bc5f77720bac977a84444428b9162b242031d2cf6949bdb66ead0d3bc5f5"
+    },
+    {
+      "component": "clippy-preview",
+      "url": "https://static.rust-lang.org/dist/2025-02-20/clippy-1.85.0-x86_64-unknown-linux-gnu.tar.xz",
+      "sha256": "0dc3ca1708a6c9eed05d0802364377572b79ff079815b7bcbe8e3991f77c4117"
+    }
+  ],
+  "observed_clang_components": [
+    {
+      "path": "/workspace/tools/sysroot/usr/lib/llvm-19/bin/clang",
+      "sha256": "0a3c55936ac43954fbe4914e6e73b577ca9e35e75d89ef13d3e28c187f41ca1a"
+    },
+    {
+      "path": "/workspace/tools/sysroot/usr/lib/x86_64-linux-gnu/libclang-cpp.so.19.1",
+      "sha256": "0108c687d2f500d77687984c46c9fad663782603f5c623e3c14224c155b4fd21"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libLLVM.so.19.1",
+      "sha256": "3523f50f635d2a1ea47518a392451f2854b92823ceaf1345fb806099dd1a3b8a"
+    }
+  ],
+  "windows_candidate": {
+    "target": "x86_64-pc-windows-msvc",
+    "rust": "1.85.0",
+    "clang": "19.1.7",
+    "host_minimum": "Windows 10 x64 NTFS",
+    "qualification": "pending",
+    "rust_manifest_sha256": "009e8b5ff43f12bf644b5e5b9fd89f96453072062a450c623882f64e85405da5",
+    "components": [
+      {
+        "url": "https://static.rust-lang.org/dist/2025-02-20/rustc-1.85.0-x86_64-pc-windows-msvc.tar.xz",
+        "sha256": "80ba356369004caf050d4389da5f8f924e4c07cf7189854b78718747f74747fd",
+        "bytes": 66868560,
+        "checksum_provenance": "official Rust manifest"
+      },
+      {
+        "url": "https://static.rust-lang.org/dist/2025-02-20/rust-std-1.85.0-x86_64-pc-windows-msvc.tar.xz",
+        "sha256": "7b1748506b97186b40485a7287709dae9efd399402b636e7301c5f91970d5c46",
+        "bytes": 23332872,
+        "checksum_provenance": "official Rust manifest"
+      },
+      {
+        "url": "https://static.rust-lang.org/dist/2025-02-20/cargo-1.85.0-x86_64-pc-windows-msvc.tar.xz",
+        "sha256": "2e514d1840df05ec951ac3caf519a93a8ec40ac95b0371b4f6a7728a2713e07f",
+        "bytes": 7252492,
+        "checksum_provenance": "official Rust manifest"
+      },
+      {
+        "url": "https://static.rust-lang.org/dist/2025-02-20/rustfmt-1.85.0-x86_64-pc-windows-msvc.tar.xz",
+        "sha256": "f976dd038d7e8fcb034ca2b81f0422ef89f8598a4d1307cc496fcd7b04fe0fef",
+        "bytes": 1762576,
+        "checksum_provenance": "official Rust manifest"
+      },
+      {
+        "url": "https://static.rust-lang.org/dist/2025-02-20/clippy-1.85.0-x86_64-pc-windows-msvc.tar.xz",
+        "sha256": "401dd6c039b7bde98e0d9157c725e5b4085ece879a8bfa2275ca836381f332c3",
+        "bytes": 2745064,
+        "checksum_provenance": "official Rust manifest"
+      },
+      {
+        "url": "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/clang%2Bllvm-19.1.7-x86_64-pc-windows-msvc.tar.xz",
+        "sha256": "b4557b4f012161f56a2f5d9e877ab9635cafd7a08f7affe14829bd60c9d357f0",
+        "bytes": 845236708,
+        "checksum_provenance": "observed official LLVM release archive; signature not yet verified"
+      }
+    ],
+    "msvc": "14.44.35207",
+    "windows_sdk": "10.0.26100.0",
+    "installed_tools_required": true
+  }
+}

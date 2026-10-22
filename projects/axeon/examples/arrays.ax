@@ -1,0 +1,14 @@
+fn main() -> i64 {
+    let mut samples: [i64; 4] = [3, 5, 7, 11];
+    {
+        let middle: &mut [i64] = &mut samples[1..3];
+        middle[0] = middle[0] * 2;
+        middle[1] = middle[1] + 1;
+    }
+    let owned: [i64; 4] = samples;
+    let first: &[i64] = &owned[0..2];
+    let second: &[i64] = &owned[2..4];
+    print(len(first));
+    print(first[0] + first[1]);
+    return first[0] + first[1] + second[0] + second[1];
+}

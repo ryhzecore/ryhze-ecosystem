@@ -1,0 +1,8 @@
+#pragma once
+namespace race::build {
+inline constexpr const char* compiler_version = "@CMAKE_CXX_COMPILER_ID@ @CMAKE_CXX_COMPILER_VERSION@";
+inline constexpr const char* source_commit = "@RACE_SOURCE_COMMIT@";
+inline constexpr const char* authored_input_sha256 = "@RACE_SOURCE_INPUT_SHA@";
+inline constexpr const char* configuration = "@CMAKE_BUILD_TYPE@";
+inline constexpr const char* sanitizer = "@RACE_SANITIZER@";
+}

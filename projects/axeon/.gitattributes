@@ -1,0 +1,15 @@
+# Preserve exact generated evidence; CSV uses standard CRLF record endings.
+benchmarks/results/*.csv whitespace=cr-at-eol
+benchmarks/results/kernel.ll whitespace=-blank-at-eof
+benchmarks/**/*.csv whitespace=cr-at-eol
+benchmarks/**/*.ll whitespace=-blank-at-eof
+benchmarks/**/*.svg whitespace=-blank-at-eol
+evidence/*.log whitespace=-blank-at-eof
+evidence/**/*.log whitespace=-blank-at-eof
+evidence/**/*.ll whitespace=-blank-at-eof
+evidence/**/*.stdout whitespace=-blank-at-eof
+evidence/**/*.stderr whitespace=-blank-at-eof
+# Retain checkpoint 0.6 receipts and raw process logs byte for byte.
+evidence/0.6/**/*.json whitespace=cr-at-eol
+evidence/0.6/**/*.csv whitespace=cr-at-eol
+evidence/0.6/**/*.log whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof

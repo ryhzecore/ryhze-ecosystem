@@ -1,0 +1,49 @@
+---
+import Brand from './Brand.astro';
+import Chooser from '../entertainment/Chooser.astro';
+import Toolbar from '../entertainment/Toolbar.astro';
+import Dropdown from '../ui/Dropdown.astro';
+import { site } from '@/data/site';
+interface Props {
+  active?: 'home' | 'downloads' | 'entertainment' | 'race' | undefined;
+  entertainmentCategory?: 'games' | 'films' | undefined;
+}
+const { active, entertainmentCategory } = Astro.props;
+---
+
+<header class:list={['site-header', { 'site-header--entertainment': entertainmentCategory }]}>
+  <div class="container header-inner">
+    <Brand compact={!!entertainmentCategory} />
+    {entertainmentCategory && <Chooser category={entertainmentCategory} />}
+    {entertainmentCategory ? (
+      <Toolbar />
+    ) : (
+      <nav aria-label="Main navigation">
+        <Dropdown
+          id="mobile-navigation-panel"
+          class="mobile-navigation"
+          label="Ryhze menu"
+          trigger="menu"
+          variant="outline"
+          align="end"
+          items={[
+            { label: 'Explore', href: '/#discover', icon: 'search' },
+            {
+              label: 'Download',
+              href: '/downloads/',
+              icon: 'down',
+              current: active === 'downloads' ? 'page' : undefined,
+            },
+            {
+              label: 'RACE',
+              href: '/race/',
+              icon: 'spark',
+              current: active === 'race' ? 'page' : undefined,
+            },
+            { label: 'Entertainment', href: site.appUrl, icon: 'globe' },
+          ]}
+        />
+      </nav>
+    )}
+  </div>
+</header>

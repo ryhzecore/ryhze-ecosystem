@@ -1,0 +1,15 @@
+import statistics;
+import types;
+fn main() -> i64 { return 99; }
+fn test_valid() -> i64 {
+    let samples: [f64; 3] = statistics::samples();
+    let reading: types::Reading = statistics::reading();
+    let result: types::Outcome = statistics::summarize(samples, reading);
+    return statistics::count(result) - 3;
+}
+fn test_invalid() -> i64 {
+    let samples: [f64; 3] = statistics::samples();
+    let reading: types::Reading = types::Reading { base: 0.0, valid: false };
+    let result: types::Outcome = statistics::summarize(samples, reading);
+    return statistics::count(result) + 7;
+}

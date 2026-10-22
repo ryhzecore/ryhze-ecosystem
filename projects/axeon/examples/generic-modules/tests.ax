@@ -1,0 +1,33 @@
+import pipeline;
+import types;
+
+fn main() -> i64 {
+    return 0;
+}
+
+fn test_empty_packet() -> i64 {
+    let packet: types::Packet = types::empty();
+    let total: i64 = pipeline::invoice::<types::Packet>(packet);
+    if total == 7 {
+        return 0;
+    }
+    return 1;
+}
+
+fn test_nested_packet() -> i64 {
+    let packet: types::Packet = types::make();
+    let total: i64 = pipeline::invoice::<types::Packet>(packet);
+    if total == 42 {
+        return 0;
+    }
+    return 1;
+}
+
+fn test_scalar_and_unit() -> i64 {
+    let number: i64 = pipeline::identity::<i64>(9);
+    let done: () = pipeline::identity::<()>(());
+    if number == 9 {
+        return 0;
+    }
+    return 1;
+}

@@ -1,0 +1,157 @@
+---
+import Icon from '../ui/Icon.astro';
+import { platforms, site, publicRelease } from '@/data/site';
+---
+
+<dialog
+  class="detail-frame platform-frame"
+  data-platform-dialog
+  aria-labelledby="platform-frame-heading"
+>
+  <div class="detail-frame-panel" data-platform-panel>
+    <header class="detail-frame-header">
+      <button type="button" class="button button--outline frame-back" data-close-platform autofocus>
+        <Icon name="arrow" /> Back
+      </button>
+      <span class="detail-frame-brand">Ryhze / Platforms</span>
+    </header>
+    <div class="detail-frame-scroll platform-frame-content" data-platform-scroll>
+      <div class="platform-frame-heading">
+        <p class="eyebrow" data-platform-eyebrow>
+          Made for your screen
+        </p>
+        <h2 id="platform-frame-heading">Choose your platform</h2>
+      </div>
+      <section
+        data-platform-view="platforms"
+        data-frame-title="Choose your platform"
+        aria-label="Platform choices"
+      >
+        <p>
+          Choose a platform to see its details, then review release information before downloading.
+        </p>
+        <div class="platform-frame-list">
+          {platforms.map((platform) => (
+            <button type="button" data-platform-open={`platform-${platform.id}`}>
+              <Icon name={platform.icon} />
+              <span>
+                {platform.name}
+                <small>{platform.status}</small>
+              </span>
+              <Icon name="arrow" />
+            </button>
+          ))}
+        </div>
+      </section>
+      {platforms.map((platform) => (
+        <>
+          <section
+            data-platform-view={`platform-${platform.id}`}
+            data-frame-title={platform.name}
+            hidden
+          >
+            <p class="platform-frame-description">{platform.description}</p>
+            <p class="platform-frame-status">{platform.status}</p>
+            <div class="platform-frame-actions">
+              <button
+                type="button"
+                class="button button--primary"
+                data-platform-open={`download-${platform.id}`}
+                aria-describedby={`download-explanation-${platform.id}`}
+              >
+                Download <Icon name="down" />
+              </button>
+              <p id={`download-explanation-${platform.id}`}>
+                View version, licensing and terms before a download.
+              </p>
+            </div>
+          </section>
+        </>
+      ))}
+      <section
+        data-platform-view="platform-entertainment"
+        data-frame-title="Entertainment"
+        hidden
+        aria-label="Entertainment details"
+      >
+        <div class="platform-frame-symbol">
+          <Icon name="globe" />
+        </div>
+        <p class="platform-frame-description">A new home for Games and Films is taking shape.</p>
+        <p class="platform-frame-status">Still being built</p>
+        <p>
+          Explore the showcase and see what’s in development. Playable games and films to watch are
+          not available yet.
+        </p>
+        <div class="actions">
+          <a class="button button--primary" href={site.gamesUrl}>
+            Explore Games
+          </a>
+          <a class="button button--secondary" href={site.filmsUrl}>
+            Explore Films
+          </a>
+        </div>
+        <p class="platform-note">The browser showcase does not require an app download.</p>
+      </section>
+      <section
+        data-platform-view="download"
+        data-download-review
+        hidden
+        aria-label="Download information"
+      >
+        <p>
+          Review the release details below. A download will appear when a verified release and
+          approved documents are available.
+        </p>
+        <dl class="platform-release-facts">
+          <div>
+            <dt>Latest app version</dt>
+            <dd>{publicRelease.version ?? 'No public release yet'}</dd>
+          </div>
+          <div>
+            <dt>Availability</dt>
+            <dd>Not available yet</dd>
+          </div>
+          <div>
+            <dt>Release date</dt>
+            <dd>{publicRelease.date ?? 'To be announced'}</dd>
+          </div>
+          <div>
+            <dt>System requirements</dt>
+            <dd>{publicRelease.requirements ?? 'To be confirmed for a release'}</dd>
+          </div>
+          <div>
+            <dt>Installer &amp; file size</dt>
+            <dd>No verified public installer available</dd>
+          </div>
+          <div>
+            <dt>Website version</dt>
+            <dd>V{site.version} · PRE-ALPHA website, not an app release</dd>
+          </div>
+        </dl>
+        <div class="platform-release-documents">
+          <h3>Licensing</h3>
+          <p>
+            {publicRelease.licence ??
+              'The app licence and third-party notices are being prepared. Approved release documents are not available yet.'}
+          </p>
+          <h3>Terms</h3>
+          <p>
+            {publicRelease.terms ??
+              'Terms for downloading and using the app are being prepared. Approved terms are not available yet.'}
+          </p>
+          <h3>Privacy</h3>
+          <p>
+            {publicRelease.privacy ?? 'The approved app privacy information is not available yet.'}
+          </p>
+        </div>
+        <div class="platform-frame-actions">
+          <button type="button" class="button button--outline" disabled>
+            Download unavailable
+          </button>
+          <p>No file will download while the release or its required documents are unavailable.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</dialog>

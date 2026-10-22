@@ -1,0 +1,6 @@
+/* Retained module boundary. The monochrome shell no longer mounts glows or
+   initializes their controller; stale decorative markup must stay unpainted. */
+.ambient-background,
+.ambient-glow {
+  display: none;
+}

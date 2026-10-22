@@ -1,0 +1,28 @@
+{
+  "worker": "ryhze-website-public",
+  "production_version_id": "e6ba33a3-5388-431d-96f1-b8800e5f9c1f",
+  "rollback_version_id": "86b09f77-0eed-4d6b-8e43-7c5ef9b5a8d1",
+  "frontend_source_commit": "8ed06e2a46f9c9a6e544a270189187bb3a9f92fb",
+  "frontend_dist_sha256": "92e16b5bd4c19972d9082f5e4e6ddba273cf05df3f0ef747d3f11c005fa217a2",
+  "frontend_files": 35,
+  "frontend_bytes": 1684965,
+  "deployed_route_patterns": [
+    "https://ryhze.com/*",
+    "http://ryhze.com/*",
+    "https://www.ryhze.com/*",
+    "http://www.ryhze.com/*"
+  ],
+  "legacy_worker": "ryhze-web",
+  "legacy_version_id": "9da6f1dd-6923-4a9f-937c-c2e43798a237",
+  "domain_verification": "HTTP 200 apex/www, query homepage, Entertainment redirect, Films, Games; both JSON endpoints report 0.1.0-2; live shared script matches built SHA-256; browser Games deep link opens and focuses Back",
+  "version": "0.1.0-2",
+  "deployment_id": "4ce9623d-a394-4ee3-a3a4-19caaaf2ffe3",
+  "stage": "PRE-ALPHA",
+  "deployed_at": "2026-10-03T14:32:57.947037Z",
+  "frontend_digest_method": "SHA-256 of sorted lines: file SHA-256, two spaces, relative POSIX path, newline",
+  "legacy_only_rollback_version_id": "7bf50f1f-adb8-4033-8f03-dd8ff1a0a8c7",
+  "previous_release_record": "releases/v0.0.9.json",
+  "source_archive_sha256": "f7d9cb4221133a3c451350938ef3d46b516a1127209bde46bfeaa23c4f507610",
+  "static_archive_sha256": "78f1258391290a40be9bc3e3e8655ef078024b2bf92e3b547b193beb9b0f7f95",
+  "preservation_verification": "All eight route patterns, destinations and fail-open settings preserved; Wrangler refreshed four frontend route IDs. Five other Worker deployments and configuration digests unchanged."
+}

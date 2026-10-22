@@ -1,0 +1,36 @@
+---
+interface Props {
+  footer?: boolean;
+  compact?: boolean;
+}
+const { footer = false, compact = false } = Astro.props;
+---
+
+<a
+  class:list={['brand', { 'brand--footer': footer, 'brand--compact': compact }]}
+  href="/"
+  aria-label="Ryhze home"
+>
+  <img
+    src="/brand/web/wordmark-348.webp"
+    srcset="/brand/web/wordmark-174.webp 174w, /brand/web/wordmark-348.webp 348w, /brand/web/wordmark-522.webp 522w"
+    sizes={footer ? '(max-width: 760px) 170px, 174px' : '(max-width: 760px) 126px, 144px'}
+    alt="Ryhze"
+    width="7256"
+    height="2480"
+    decoding="async"
+    loading={footer ? 'lazy' : 'eager'}
+  />
+  {!footer && <span class="brand-stage-tag">PRE-ALPHA</span>}
+  {compact && (
+    <img
+      class="brand-compact-symbol"
+      src="/brand/web/symbol-240.webp"
+      width="240"
+      height="240"
+      alt=""
+      decoding="async"
+      loading="eager"
+    />
+  )}
+</a>

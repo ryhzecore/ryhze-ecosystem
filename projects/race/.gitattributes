@@ -1,0 +1,80 @@
+# These validation capsules hash exact file bytes; preserve their recorded endings.
+/evidence/windows/2026-10-11-editor-gizmos/** -text
+/evidence/windows/2026-10-11-editor-aligned-gizmos/** -text
+/evidence/windows/2026-10-11-project-content-browser/** -text
+/evidence/windows/2026-10-11-editor-reimport/** -text
+/evidence/windows/2026-10-11-editor-authoring/** -text
+
+# Stabilize this policy independently from the authored-source manifest.
+/.gitattributes text eol=lf
+
+# Rooted authored text families; leave documentation, evidence and other assets alone.
+/src/**/*.cmake text eol=lf
+/src/**/*.cpp text eol=lf
+/src/**/*.hlsl text eol=lf
+/src/**/*.hpp text eol=lf
+/src/**/*.json text eol=lf
+/src/**/*.ps1 text eol=lf
+/src/**/*.py text eol=lf
+/src/**/*.hpp.in text eol=lf
+/src/**/CMakeLists.txt text eol=lf
+/include/**/*.cmake text eol=lf
+/include/**/*.cpp text eol=lf
+/include/**/*.hlsl text eol=lf
+/include/**/*.hpp text eol=lf
+/include/**/*.json text eol=lf
+/include/**/*.ps1 text eol=lf
+/include/**/*.py text eol=lf
+/include/**/*.hpp.in text eol=lf
+/include/**/CMakeLists.txt text eol=lf
+/apps/**/*.cmake text eol=lf
+/apps/**/*.cpp text eol=lf
+/apps/**/*.hlsl text eol=lf
+/apps/**/*.hpp text eol=lf
+/apps/**/*.json text eol=lf
+/apps/**/*.ps1 text eol=lf
+/apps/**/*.py text eol=lf
+/apps/**/*.hpp.in text eol=lf
+/apps/**/CMakeLists.txt text eol=lf
+/tests/**/*.cmake text eol=lf
+/tests/**/*.cpp text eol=lf
+/tests/**/*.hlsl text eol=lf
+/tests/**/*.hpp text eol=lf
+/tests/**/*.json text eol=lf
+/tests/**/*.ps1 text eol=lf
+/tests/**/*.py text eol=lf
+/tests/**/*.hpp.in text eol=lf
+/tests/**/CMakeLists.txt text eol=lf
+/benchmarks/**/*.cmake text eol=lf
+/benchmarks/**/*.cpp text eol=lf
+/benchmarks/**/*.hlsl text eol=lf
+/benchmarks/**/*.hpp text eol=lf
+/benchmarks/**/*.json text eol=lf
+/benchmarks/**/*.ps1 text eol=lf
+/benchmarks/**/*.py text eol=lf
+/benchmarks/**/*.hpp.in text eol=lf
+/benchmarks/**/CMakeLists.txt text eol=lf
+/scripts/**/*.cmake text eol=lf
+/scripts/**/*.cpp text eol=lf
+/scripts/**/*.hlsl text eol=lf
+/scripts/**/*.hpp text eol=lf
+/scripts/**/*.json text eol=lf
+/scripts/**/*.ps1 text eol=lf
+/scripts/**/*.py text eol=lf
+/scripts/**/*.hpp.in text eol=lf
+/scripts/**/CMakeLists.txt text eol=lf
+/shaders/**/*.cmake text eol=lf
+/shaders/**/*.cpp text eol=lf
+/shaders/**/*.hlsl text eol=lf
+/shaders/**/*.hpp text eol=lf
+/shaders/**/*.json text eol=lf
+/shaders/**/*.ps1 text eol=lf
+/shaders/**/*.py text eol=lf
+/shaders/**/*.hpp.in text eol=lf
+/shaders/**/CMakeLists.txt text eol=lf
+
+/CMakeLists.txt text eol=lf
+/CMakePresets.json text eol=lf
+/apps/resources/fonts/*.qrc text eol=lf
+/apps/resources/fonts/*.txt text eol=lf
+/apps/resources/fonts/*.ttf -text

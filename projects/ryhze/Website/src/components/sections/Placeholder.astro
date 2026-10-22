@@ -1,0 +1,22 @@
+---
+import Button from '../ui/Button.astro';
+interface Props {
+  label: string;
+  title: string;
+  status: string;
+  description: string;
+}
+const { label, title, status, description } = Astro.props;
+---
+
+<section class="placeholder-page container" aria-labelledby="placeholder-title">
+  <div class="placeholder-frame">
+    <p class="eyebrow">{label}</p>
+    <h1 id="placeholder-title">{title}</h1>
+    <span class="status">{status}</span>
+    <p class="placeholder-description">{description}</p>
+    <Button href="/" variant="secondary">
+      Back to Ryhze
+    </Button>
+  </div>
+</section>

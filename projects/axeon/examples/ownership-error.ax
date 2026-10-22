@@ -1,0 +1,7 @@
+// Expected compile failure O007: move while a shared loan is alive.
+fn main() -> i64 {
+    let values: [i64; 2] = [10, 20];
+    let view: &[i64] = &values;
+    let moved: [i64; 2] = values;
+    return view[0];
+}

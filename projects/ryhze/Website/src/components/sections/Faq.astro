@@ -1,0 +1,29 @@
+---
+import Dropdown from '../ui/Dropdown.astro';
+import { questions } from '@/data/site';
+---
+
+<section class="faq section" aria-labelledby="faq-title">
+  <div class="container faq-layout">
+    <div>
+      <p class="eyebrow">A little more to know</p>
+      <h2 id="faq-title">
+        Good questions.
+        <br />
+        <span class="text-muted">Clear answers.</span>
+      </h2>
+    </div>
+    <div class="faq-list">
+      {questions.map((question, index) => (
+        <Dropdown
+          id={`faq-answer-${index + 1}`}
+          label={question.question}
+          size="wide"
+          variant="outline"
+        >
+          <p>{question.answer}</p>
+        </Dropdown>
+      ))}
+    </div>
+  </div>
+</section>

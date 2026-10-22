@@ -1,0 +1,13 @@
+First-party code and documentation in this snapshot: MIT, copyright 2026 Leo Mishra.
+
+Exceptions and upstream dependencies
+- Inter and Space Grotesk font files retain SIL Open Font License 1.1, not MIT.
+  Their complete notices are beside the fonts in the app, website and RACE resources.
+- Flutter-derived platform scaffolding retains Flutter's BSD-style terms;
+  see third-party/FLUTTER-LICENSE.txt. The Flutter SDK is not bundled.
+- External packages/libraries are not relicensed by this repository. Their manifests
+  and lockfiles identify dependencies; obtain them from their official distributions
+  and observe each dependency's terms, including Qt, SDL, LLVM and Rust components.
+- No third-party SDK binaries, installers or dependency source trees are bundled.
+- Project names are identifiers. The code licence grants no trademark endorsement
+  or rights to third-party content. Unreviewed artwork and application icons are omitted.

@@ -1,0 +1,14 @@
+// Strict binary64 recurrence. Initialization and checksum are inside the kernel.
+fn kernel(n: i64) -> i64 {
+    let mut x: f64 = 0.125;
+    let mut y: f64 = 0.5;
+    let mut i: i64 = 0;
+    while i < n {
+        x = (x * (1.0 - x)) * 3.75;
+        y = (y + x) / (1.5 + x * 0.5);
+        i = i + 1;
+    }
+    return f64_bits(x + y);
+}
+
+fn main() -> i64 { return kernel(1); }

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "product": "ryhze-website",
+  "version": "0.0.5",
+  "stage": "PRE-ALPHA",
+  "status": "unpublished-review-candidate",
+  "previous_package_label": "0.1.0-4",
+  "approval": {
+    "message": "Sentinel_421895bb6344819198a3ecb4daa3afc2",
+    "at_utc": "2026-10-06T00:44:25Z"
+  },
+  "baseline_receipt": "b1ec11527d6ddbc7838bf49b1701c3d17d2a60cf",
+  "source_branch": "review/race-page-routing-2026-10-04",
+  "exact_candidate_receipt": "../../docs/updates/website-version-alignment-review-2026-10-06.json",
+  "historical_initial_deployment_receipt": "release.json",
+  "current_production": {
+    "worker": "ryhze-website-public",
+    "version_id": "5daa23ad-3bf3-4cef-aa62-4f4d0a1d85d3",
+    "deployment_id": "94ad06e1-af40-4873-881a-8de1760efc43",
+    "original_package_label": "0.1.0-4",
+    "tested_source": "56816e1a59af040dd772c3d32d84f5be7b0ceb67",
+    "receipt": "4333e1d40c824707bf48cd53cb26a359ab9c9f7e"
+  },
+  "crosswalk": "../../docs/website-version-crosswalk-2026-10-06.json",
+  "mvp_target": "0.1.0",
+  "mvp_readiness_authority": "Leo",
+  "deployment_authorized_by_this_record": false,
+  "release_or_tag_created": false
+}

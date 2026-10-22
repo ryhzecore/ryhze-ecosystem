@@ -1,0 +1,21 @@
+[package]
+name = "axeon"
+version = "0.13.0"
+edition = "2021"
+rust-version = "1.85"
+
+[workspace]
+members = ["crates/axeon-numerics", "crates/axeon-tensor-runtime", "crates/axeon-platform"]
+default-members = [".", "crates/axeon-tensor-runtime"]
+resolver = "2"
+
+[dependencies]
+
+[target.'cfg(windows)'.dependencies]
+axeon-platform = { path = "crates/axeon-platform" }
+
+[profile.release]
+overflow-checks = true
+
+[lints.rust]
+unsafe_code = "forbid"

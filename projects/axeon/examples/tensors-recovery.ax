@@ -1,0 +1,21 @@
+fn main() -> i64 {
+    let mut reached: i64 = 0;
+    tensor_scope(8) {
+        let first: tensor = try tensor_zeros([1]);
+        print(tensor_len(first));
+        reached = 7;
+        let exceeds_budget: tensor = try tensor_zeros([1]);
+        print(999);
+    } catch (error: tensor_error) {
+        print(tensor_error_code(error));
+        print(reached);
+    }
+    tensor_scope(8) {
+        let reused: tensor = try tensor_zeros([1]);
+        print(tensor_len(reused));
+        let wrong_shape: tensor = try tensor_zeros([-1]);
+    } catch (error: tensor_error) {
+        print(tensor_error_code(error));
+    }
+    return reached;
+}

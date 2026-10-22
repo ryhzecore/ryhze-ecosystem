@@ -1,0 +1,25 @@
+---
+import DiscoveryCard from '../ui/DiscoveryCard.astro';
+import { discoveries } from '@/data/site';
+---
+
+<section class="discovery section" id="discover" aria-labelledby="discover-title">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">01 / Discover</p>
+        <h2 id="discover-title">
+          More than one
+          <br />
+          <span class="text-muted">way to get lost.</span>
+        </h2>
+      </div>
+      <p>From the first scene to your next adventure. Explore what we’re making at Ryhze.</p>
+    </div>
+    <div class="discovery-grid">
+      {discoveries.map((card) => (
+        <DiscoveryCard card={card} />
+      ))}
+    </div>
+  </div>
+</section>

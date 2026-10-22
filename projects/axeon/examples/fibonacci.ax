@@ -1,0 +1,19 @@
+// Iterative Fibonacci with explicit mutable storage.
+fn fib(n: i64) -> i64 {
+    let mut a: i64 = 0;
+    let mut b: i64 = 1;
+    let mut i: i64 = 0;
+    while i < n {
+        let next: i64 = a + b;
+        a = b;
+        b = next;
+        i = i + 1;
+    }
+    return a;
+}
+
+fn main() -> i64 {
+    let answer: i64 = fib(20);
+    print(answer);
+    return answer;
+}

@@ -1,0 +1,37 @@
+// A concrete Result-like type with an exhaustive consumer. This is not generic Result.
+union Average {
+    Value { number: f64 },
+    Missing {},
+    Error { code: i64 },
+}
+
+fn average(total: f64, count: i64) -> Average {
+    if count < 0 {
+        return Average::Error { code: 1 };
+    }
+    if count == 0 {
+        return Average::Missing {};
+    }
+    return Average::Value { number: total / f64_from_i64(count) };
+}
+
+fn forward(total: f64, count: i64) -> Average {
+    return average(total, count);
+}
+
+fn main() -> i64 {
+    let result: Average = forward(9.0, 4);
+    match result {
+        Average::Value { number: value } => {
+            print(value); // f64:0x4002000000000000 (2.25)
+            return 0;
+        },
+        Average::Missing {} => {
+            print(false);
+            return 2;
+        },
+        Average::Error { code: code } => {
+            return code;
+        },
+    }
+}

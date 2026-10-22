@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+test-results/
+.local/
+
+# Cloudflare local state and credentials (never upload)
+.wrangler/
+.dev.vars
+.dev.vars.*
+
+auth/generated/

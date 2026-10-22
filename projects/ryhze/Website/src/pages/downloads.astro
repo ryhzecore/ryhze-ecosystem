@@ -1,0 +1,40 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import Button from '@/components/ui/Button.astro';
+import Platforms from '@/components/sections/Platforms.astro';
+import Faq from '@/components/sections/Faq.astro';
+import { site } from '@/data/site';
+---
+
+<SiteLayout
+  title="Ryhze Platforms — Not available yet"
+  description="See Ryhze platform plans. Downloads are not available yet for Windows, Linux, Steam Deck, Android, iOS or macOS."
+  active="downloads"
+>
+  <section class="download-intro container" aria-labelledby="download-title">
+    <Button class="back-link" href="/" variant="secondary">
+      Back to Ryhze
+    </Button>
+    <div class="download-heading">
+      <div>
+        <p class="eyebrow">Ryhze / Platforms</p>
+        <h1 id="download-title">
+          Your screen.
+          <br />
+          <span class="text-accent">Your Ryhze.</span>
+        </h1>
+      </div>
+      <p class="hero-description">
+        At your desk. On the go.
+        <br />
+        Downloads are not available yet.
+      </p>
+    </div>
+    <div class="access-banner">
+      <span class="access-label">In development</span>
+      <p>{site.accessNotice}</p>
+    </div>
+  </section>
+  <Platforms />
+  <Faq />
+</SiteLayout>

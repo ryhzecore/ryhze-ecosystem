@@ -1,0 +1,24 @@
+// Fixed integer state recurrence. N is runtime input in the benchmark driver.
+fn kernel(n: i64) -> i64 {
+    let mut state: [i64;32] = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,
+                              16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+    let mut acc: i64 = 17;
+    let mut i: i64 = 0;
+    while i < n {
+        let idx: i64 = i % 32;
+        let j: i64 = (idx + 1) % 32;
+        acc = (state[idx] * 1664525 + state[j] + acc) % 1000003;
+        state[idx] = acc;
+        i = i + 1;
+    }
+    let mut checksum: i64 = 0;
+    let mut k: i64 = 0;
+    while k < 32 {
+        checksum = checksum + state[k];
+        k = k + 1;
+    }
+    return checksum;
+}
+
+// Replaced only for small reference-interpreter correctness checks.
+fn main() -> i64 { return kernel(257); }

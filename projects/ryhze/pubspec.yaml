@@ -1,0 +1,33 @@
+name: ryhze
+description: Fresh Ryhze entertainment app foundation.
+publish_to: none
+# One product version; the suffix is an internal build identifier.
+version: 0.6.0+3
+environment:
+  sdk: '>=3.13.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.9
+  crypto: 3.0.7
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/brand/
+    - assets/fonts/Inter-LICENSE.txt
+    - assets/fonts/SpaceGrotesk-LICENSE.txt
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter.ttf
+    - family: SpaceGrotesk
+      fonts:
+        - asset: assets/fonts/SpaceGrotesk.ttf

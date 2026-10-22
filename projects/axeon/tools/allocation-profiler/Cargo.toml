@@ -1,0 +1,19 @@
+[package]
+name = "axeon-allocation-profiler"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+publish = false
+
+# This developer tool is intentionally outside the compiler workspace. Its
+# allocator instrumentation must never enter ordinary compiler or benchmark builds.
+[workspace]
+
+[dependencies]
+axeon = { path = "../.." }
+
+[profile.release]
+overflow-checks = true
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"

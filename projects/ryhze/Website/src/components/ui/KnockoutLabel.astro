@@ -1,0 +1,52 @@
+---
+interface Props {
+  label: string;
+  id: string;
+}
+const { label, id } = Astro.props;
+const text = label.toUpperCase();
+const width = text.length * 8 + 28;
+const height = 34;
+---
+
+<span class="knockout-label">
+  <span class="sr-only">{label}</span>
+  <svg
+    class="knockout-art"
+    width={width}
+    height={height}
+    viewBox={`0 0 ${width} ${height}`}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <defs>
+      <mask
+        id={id}
+        maskUnits="userSpaceOnUse"
+        x="0"
+        y="0"
+        width={width}
+        height={height}
+        style="mask-type: luminance"
+      >
+        <rect x="0" y="0" width={width} height={height} rx="17" fill="white" />
+        <text
+          x={width / 2}
+          y="21.3"
+          text-anchor="middle"
+          fill="black"
+          font-family="Inter, sans-serif"
+          font-size="12"
+          font-weight="650"
+          letter-spacing="0.7"
+        >
+          {text}
+        </text>
+      </mask>
+    </defs>
+    <rect x="0" y="0" width={width} height={height} rx="17" fill="white" mask={`url(#${id})`} />
+  </svg>
+  <span class="knockout-fallback" aria-hidden="true">
+    {label}
+  </span>
+</span>

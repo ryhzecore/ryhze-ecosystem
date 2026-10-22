@@ -1,0 +1,9 @@
+import contracts;
+import types;
+
+fn main() -> i64 {
+    let input: types::Packet = types::make();
+    let packet: types::Packet = contracts::Forward::forward(input);
+    print(contracts::Summarize::summarize(packet));
+    return 0;
+}

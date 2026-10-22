@@ -1,0 +1,21 @@
+export record Sample<T> {
+    sequence: i64,
+    payload: T
+}
+
+export union Packet<T> {
+    Present { sample: Sample<T> },
+    Missing { sequence: i64 }
+}
+
+export fn pack<T>(sequence: i64, payload: T) -> Packet<T> {
+    let sample: Sample<T> = Sample::<T> { sequence: sequence, payload: payload };
+    return Packet::<T>::Present { sample: sample };
+}
+
+export fn payload_or<T>(packet: Packet<T>, fallback: T) -> T {
+    match packet {
+        Packet::<T>::Present { sample: sample } => { return sample.payload; },
+        Packet::<T>::Missing { sequence: sequence } => { return fallback; }
+    }
+}

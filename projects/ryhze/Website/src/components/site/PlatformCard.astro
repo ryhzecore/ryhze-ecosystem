@@ -1,0 +1,21 @@
+---
+import Icon from '../ui/Icon.astro';
+import type { Platform } from '@/data/site';
+interface Props {
+  platform: Platform;
+}
+const { platform: p } = Astro.props;
+---
+
+<article class="platform-card platform-card--planned" id={p.id}>
+  <div class="platform-card-top">
+    <Icon name={p.icon} />
+    <span class="status">{p.status}</span>
+  </div>
+  <h3>{p.name}</h3>
+  <p class="platform-description">{p.description}</p>
+  <button class="button button--outline platform-download" disabled>
+    Not available yet
+  </button>
+  <p class="platform-note">{p.note}</p>
+</article>

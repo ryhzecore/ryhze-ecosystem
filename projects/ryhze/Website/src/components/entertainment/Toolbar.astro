@@ -1,0 +1,69 @@
+---
+import Dropdown from '../ui/Dropdown.astro';
+import Icon from '../ui/Icon.astro';
+import { exclusiveTitles } from '@/data/entertainment';
+---
+
+<div class="entertainment-toolbar">
+  <details class="dropdown entertainment-search" data-dropdown data-search>
+    <summary
+      class="button button--outline entertainment-icon-button"
+      aria-label="Search Ryhze"
+      aria-controls="entertainment-search-panel"
+    >
+      <Icon name="search" />
+    </summary>
+    <section class="dropdown-frame" id="entertainment-search-panel" aria-label="Search">
+      <div class="entertainment-search-field">
+        <Icon name="search" />
+        <input
+          type="search"
+          placeholder="Search Games and Films"
+          aria-label="Search titles"
+          autocomplete="off"
+          data-search-input
+        />
+        <button
+          type="button"
+          class="button button--outline entertainment-icon-button"
+          aria-label="Close search"
+          data-close-dropdown
+        >
+          <Icon name="close" />
+        </button>
+      </div>
+      <div class="entertainment-search-results">
+        {exclusiveTitles.map((title) => (
+          <a class="search-result" href={title.href} data-search-title={title.title.toLowerCase()}>
+            <span>
+              {title.title}
+              <small>
+                {title.category === 'games' ? 'Game' : 'Film'} · {title.status}
+              </small>
+            </span>
+            <Icon name="arrow" />
+          </a>
+        ))}
+        <p class="search-empty" data-search-empty hidden aria-live="polite">
+          No matching titles. Try another search.
+        </p>
+      </div>
+    </section>
+  </details>
+  <Dropdown
+    id="entertainment-menu-panel"
+    class="entertainment-menu"
+    label="Ryhze menu"
+    trigger="menu"
+    variant="outline"
+    align="end"
+    items={[
+      { label: 'Games', href: '/games/', icon: 'gamepad' },
+      { label: 'Films', href: '/films/', icon: 'film' },
+      { label: 'Platforms', href: '/downloads/', icon: 'arrow' },
+      { label: 'Get in touch', href: '/contact/', icon: 'arrow' },
+      { label: 'Privacy & cookies', href: '/privacy/', icon: 'arrow' },
+      { label: 'Terms & licences', href: '/legal/', icon: 'arrow' },
+    ]}
+  />
+</div>

@@ -1,0 +1,11 @@
+[package]
+name = "axeon-platform"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "Narrow operating-system adapters for the Axeon compiler"
+
+[dependencies]
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"

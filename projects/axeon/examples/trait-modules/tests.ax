@@ -1,0 +1,16 @@
+import contracts;
+import types;
+
+fn main() -> i64 {
+    return 0;
+}
+
+fn test_trait_pipeline() -> i64 {
+    let input: types::Packet = types::make();
+    let packet: types::Packet = contracts::Forward::forward(input);
+    let result: i64 = contracts::Summarize::summarize(packet);
+    if result == 42 {
+        return 0;
+    }
+    return 1;
+}

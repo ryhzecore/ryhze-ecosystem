@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Ryhze
+Comment=Ryhze entertainment catalog
+Exec=ryhze
+Icon=com.ryhze.ryhze
+Terminal=false
+Categories=Game;
+StartupNotify=true

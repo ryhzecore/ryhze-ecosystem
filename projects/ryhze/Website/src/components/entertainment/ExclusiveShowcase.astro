@@ -1,0 +1,97 @@
+---
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
+import WorldArtwork from './WorldArtwork.astro';
+import { exclusiveTitles } from '@/data/entertainment';
+interface Props {
+  category: 'games' | 'films';
+}
+const { category } = Astro.props;
+const titles = exclusiveTitles.filter((title) => title.category === category);
+---
+
+<section class="exclusive-showcase" aria-label="Ryhze Exclusives" data-exclusive-showcase>
+  {titles.map((title, index) => (
+    <div class="entertainment-hero" data-exclusive-slide hidden={index !== 0}>
+      <div class="entertainment-art entertainment-art--world">
+        <WorldArtwork />
+      </div>
+      <div
+        class="entertainment-hero-content"
+        role="region"
+        aria-label={`${title.titleLines.join(' ')} featured information`}
+      >
+        <div class="entertainment-copy">
+          <p class="eyebrow">Ryhze {category === 'games' ? 'Games' : 'Films'}</p>
+          <h1
+            aria-label={title.titleLines.join(' ')}
+            id={index === 0 ? 'entertainment-title' : undefined}
+          >
+            {title.titleLines.map((line) => (
+              <>
+                <span class="hero-title-line">{line}</span>{' '}
+              </>
+            ))}
+          </h1>
+          <p class="entertainment-description">
+            <span class="full-description">{title.description}</span>
+            <span class="compact-description">{title.compactDescription}</span>
+          </p>
+          <div class="actions">
+            <Button href={title.href} icon="arrow">
+              Explore the {category === 'games' ? 'game' : 'film'}
+            </Button>
+            <button
+              type="button"
+              class="button button--secondary"
+              data-save-title={title.id}
+              data-save-name={title.title}
+              hidden
+              aria-pressed="false"
+              aria-label={`Save ${title.title} temporarily`}
+              aria-describedby="temporary-favourites-note"
+            >
+              <Icon name="plus" />
+              <span data-save-label>Favourites</span>
+            </button>
+          </div>
+          <p class="entertainment-status">
+            <span class="status-dot"></span>
+            {title.status}
+            {title.genre && (
+              <>
+                <span aria-hidden="true">/</span>
+                {title.genre}
+              </>
+            )}
+          </p>
+        </div>
+        <div class="entertainment-hero-footer">
+          <span>{title.mediaLabel}</span>
+        </div>
+      </div>
+      <span
+        class="entertainment-hero-counter"
+        aria-label={`Featured title ${index + 1} of ${titles.length}`}
+      >
+        {String(index + 1).padStart(2, '0')} <span aria-hidden="true">/</span>{' '}
+        {String(titles.length).padStart(2, '0')}
+      </span>
+    </div>
+  ))}
+  {titles.length > 1 && (
+    <div
+      class="exclusive-controls"
+      aria-label="Choose a Ryhze exclusive"
+      hidden
+      data-exclusive-controls
+    >
+      <button class="button button--outline" type="button" data-exclusive-step="-1">
+        Previous
+      </button>
+      <button class="button button--outline" type="button" data-exclusive-step="1">
+        Next
+      </button>
+    </div>
+  )}
+</section>

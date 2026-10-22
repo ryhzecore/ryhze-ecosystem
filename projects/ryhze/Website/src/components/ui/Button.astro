@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro';
+import type { IconName } from '@/data/icons';
+type Props = {
+  variant?: 'primary' | 'secondary' | 'outline' | 'text';
+  icon?: IconName | null;
+  class?: string;
+  wrap?: boolean;
+} & ({ as?: 'a'; href: string } | { as: 'span'; href?: never });
+const {
+  as: Tag = 'a',
+  href,
+  variant = 'primary',
+  icon = null,
+  class: className,
+  wrap = false,
+} = Astro.props;
+---
+
+<Tag
+  class:list={['button', `button--${variant}`, className]}
+  href={Tag === 'a' ? href : undefined}
+  style={wrap ? 'white-space: normal' : undefined}
+>
+  <slot />
+  {icon && <Icon name={icon} />}
+</Tag>

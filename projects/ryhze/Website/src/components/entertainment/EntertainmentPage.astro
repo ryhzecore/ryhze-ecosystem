@@ -1,0 +1,38 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import CategoryContent from './CategoryContent.astro';
+import TitleDialog from './TitleDialog.astro';
+import '@/styles/entertainment.css';
+interface Props {
+  category?: 'games' | 'films';
+}
+const { category = 'games' } = Astro.props;
+const categoryTitle = (value: 'games' | 'films') =>
+  value === 'films' ? 'Ryhze Films — Tommy Riley' : 'Ryhze Games — Larcenous Driftscape';
+---
+
+<SiteLayout
+  title={categoryTitle(category)}
+  description="Explore Games and Films taking shape at Ryhze. A pre-alpha showcase; playable games, downloads and films are not available yet."
+  active="entertainment"
+  entertainmentCategory={category}
+>
+  <div class="entertainment-shell" data-entertainment-root data-current-category={category}>
+    <div data-entertainment-content>
+      <CategoryContent category={category} />
+    </div>
+    {(['games', 'films'] as const).map((value) => (
+      <template data-category-template={value} data-title={categoryTitle(value)}>
+        <CategoryContent category={value} />
+      </template>
+    ))}
+    <TitleDialog category={category} />
+    <p class="entertainment-note container">
+      PRE-ALPHA showcase. Games and Films are still being built.
+      <span class="favourites-note" id="temporary-favourites-note" data-favourites-note hidden>
+        Favourites are temporary and reset when you leave or reload this page.
+      </span>
+    </p>
+    <p class="sr-only" aria-live="polite" data-entertainment-announcement></p>
+  </div>
+</SiteLayout>

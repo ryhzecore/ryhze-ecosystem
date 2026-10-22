@@ -1,0 +1,31 @@
+---
+interface Props {
+  category: 'games' | 'films';
+}
+const { category } = Astro.props;
+---
+
+<nav
+  class="entertainment-chooser"
+  aria-label="Choose Games or Films"
+  data-entertainment-chooser
+  data-category={category}
+>
+  <span class="entertainment-selection" aria-hidden="true"></span>
+  <a
+    draggable="false"
+    href="/games/"
+    data-category-link="games"
+    aria-current={category === 'games' ? 'page' : undefined}
+  >
+    Games
+  </a>
+  <a
+    draggable="false"
+    href="/films/"
+    data-category-link="films"
+    aria-current={category === 'films' ? 'page' : undefined}
+  >
+    Films
+  </a>
+</nav>

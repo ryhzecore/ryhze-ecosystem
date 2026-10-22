@@ -1,0 +1,3 @@
+export record Stats { base: f64, count: i64, marker: f64 }
+export record Batch { values: [f64; 3], stats: Stats }
+export union Outcome { Data { batch: Batch }, Invalid { code: i64 } }

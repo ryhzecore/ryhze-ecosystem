@@ -1,0 +1,9 @@
+import types;
+export fn samples() -> types::Outcome {
+    return types::Outcome::Data {
+        batch: types::Batch {
+            values: [1.0, 2.0, 2.5],
+            stats: types::Stats { base: 10.0, count: 3, marker: -0.0 }
+        }
+    };
+}

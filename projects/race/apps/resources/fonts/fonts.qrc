@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="/race/fonts">
+    <file>Inter.ttf</file>
+    <file>SpaceGrotesk.ttf</file>
+    <file>Inter-LICENSE.txt</file>
+    <file>SpaceGrotesk-LICENSE.txt</file>
+    <file>SOURCES.txt</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,2 @@
+export record Completion { value: i64, done: () }
+export union Outcome { Ready { value: Completion }, Empty { done: () } }

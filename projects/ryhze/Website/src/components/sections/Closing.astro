@@ -1,0 +1,14 @@
+---
+import Button from '../ui/Button.astro';
+import { site } from '@/data/site';
+---
+
+<section class="closing" aria-labelledby="closing-title">
+  <div class="container closing-inner">
+    <div>
+      <p class="eyebrow">This is just the beginning.</p>
+      <h2 id="closing-title">See where Ryhze takes you.</h2>
+    </div>
+    <Button href={site.appUrl}>Open Ryhze</Button>
+  </div>
+</section>

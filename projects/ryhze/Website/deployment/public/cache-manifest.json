@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "immutableAssets": [
+    {
+      "path": "/_astro/Button.Da1f3Rr3.css",
+      "sha256": "a4ac35e8673dc027a466246089a61a5ec776e3756e532bd234f7b49dfee0b4bb",
+      "bytes": 28334
+    },
+    {
+      "path": "/_astro/EntertainmentPage.D6O8j5rA.css",
+      "sha256": "2099cae7271a9b20f940c3a17a1fe420136287319889e6fe95c51de5fa1c6e62",
+      "bytes": 15575
+    },
+    {
+      "path": "/_astro/SiteLayout.astro_astro_type_script_index_0_lang.CqzxvGYQ.js",
+      "sha256": "995a70ced933592f0f16aa21fcc1f07ce7b49aaa7ec972c6a9ac24ec9228a257",
+      "bytes": 25
+    },
+    {
+      "path": "/_astro/ui.C6Ot_Kds.js",
+      "sha256": "6157d8659df4f39fa7a0afdbba61465b94e67e63d75f458fa767d6120557d73e",
+      "bytes": 14757
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+import types;
+export fn announce(tag: i64) -> () {
+    print(tag);
+    return ();
+}
+export fn complete(mark: (), value: i64) -> types::Completion {
+    return types::Completion { value: value, done: mark };
+}
+export fn ready(value: types::Completion) -> types::Outcome {
+    return types::Outcome::Ready { value: value };
+}
+export fn verify(mark: ()) -> bool { return mark == (); }

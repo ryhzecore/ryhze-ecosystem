@@ -1,0 +1,20 @@
+{
+  "worker": "ryhze-website-public",
+  "production_version_id": "86b09f77-0eed-4d6b-8e43-7c5ef9b5a8d1",
+  "rollback_version_id": "7bf50f1f-adb8-4033-8f03-dd8ff1a0a8c7",
+  "frontend_source_commit": "cca02a03e056b57bf03a5514cfa600a0d2328c17",
+  "frontend_dist_sha256": "a475fb666a1b43c7c47f2cc5a40c454e7330c5d542a3dcc0d5db1b9531fce2c9",
+  "frontend_files": 35,
+  "frontend_bytes": 1610941,
+  "deployed_route_patterns": [
+    "https://ryhze.com/*",
+    "http://ryhze.com/*",
+    "https://www.ryhze.com/*",
+    "http://www.ryhze.com/*"
+  ],
+  "legacy_worker": "ryhze-web",
+  "legacy_version_id": "9da6f1dd-6923-4a9f-937c-c2e43798a237",
+  "domain_verification": "Passed normal Chromium readback on apex, query-string homepage, www, Entertainment, Films and Games deep link",
+  "version": "0.0.9",
+  "deployment_id": "951e294f-5f17-4bd4-a18c-378b741b6154"
+}

@@ -1,0 +1,2 @@
+#include "Generated.xcconfig"
+#include? "../../build/apple-testflight-private/signing/runner-signing.xcconfig"

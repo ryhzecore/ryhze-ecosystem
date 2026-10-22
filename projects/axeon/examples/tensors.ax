@@ -1,0 +1,25 @@
+fn main() -> i64 {
+    let mut status: i64 = 0;
+    tensor_scope(4096) {
+        let values: [f64; 4] = [1.0, 2.0, 3.0, 4.0];
+        let matrix: tensor = try tensor_from_array([2, 2], values);
+        let transposed: &tensor = try tensor_transpose(&matrix, [1, 0]);
+        let product: tensor = try tensor_matmul(matrix, transposed);
+        let mut index: i64 = 0;
+        while index < tensor_len(product) {
+            print(try tensor_get(product, index));
+            index = index + 1;
+        }
+        print(try tensor_sum(product));
+        let logits: tensor = try tensor_zeros([2]);
+        let probabilities: tensor = try tensor_softmax(logits);
+        print(try tensor_get(probabilities, 0));
+        print(try tensor_get(probabilities, 1));
+        let sigmoid: tensor = try tensor_sigmoid(logits);
+        print(try tensor_sum(sigmoid));
+    } catch (error: tensor_error) {
+        print(tensor_error_code(error));
+        status = 1;
+    }
+    return status;
+}

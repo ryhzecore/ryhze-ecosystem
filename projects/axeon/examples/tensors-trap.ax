@@ -1,0 +1,13 @@
+fn fail() -> i64 {
+    return 1 / 0;
+}
+fn main() -> i64 {
+    tensor_scope(8) {
+        let owned: tensor = try tensor_zeros([1]);
+        print(tensor_len(owned));
+        print(fail());
+    } catch (error: tensor_error) {
+        print(999);
+    }
+    return 0;
+}

@@ -1,0 +1,15 @@
+import pipeline;
+import types;
+
+fn main() -> i64 {
+    let packet: types::Packet = types::make();
+    print(pipeline::invoice::<types::Packet>(packet));
+
+    let empty: types::Packet = types::empty();
+    print(pipeline::invoice::<types::Packet>(empty));
+
+    let number: i64 = pipeline::identity::<i64>(9);
+    print(number);
+    let done: () = pipeline::identity::<()>(());
+    return 0;
+}

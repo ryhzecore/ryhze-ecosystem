@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "name": "JoltPhysics",
+  "version": "5.6.0",
+  "commit": "e77f175595e64cb44218cc9d9d56fc365ad0e36a",
+  "git_tree_sha1": "9bc76dd82ae320398f894f69dd3c7735075a7b3e",
+  "archive_sha256": "1f32328fb763135de10a244568d6ccb2ed9b1e6593fafe6dc6db5b2719d330bd",
+  "directory": "Dependencies/JoltPhysics-5.6.0-e77f175595e64cb44218cc9d9d56fc365ad0e36a",
+  "manifest": "Evidence/2026-10-15/p04-jolt-intake/attempt-01/source-manifest.json",
+  "manifest_sha256": "c0678138aa2ede3123ad5808b54be20dd166e7768ee5d9bd05afbf7cb1f81d5e",
+  "files": 1250,
+  "bytes": 36117847,
+  "profile": "race-rigid-primitives-1",
+  "scope": "Isolated qualification only; no editor/runtime solver admission"
+}

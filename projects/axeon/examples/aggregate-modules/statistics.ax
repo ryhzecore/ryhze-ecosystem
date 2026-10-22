@@ -1,0 +1,22 @@
+import types;
+export fn samples() -> [f64; 3] { return [1.0, 2.0, 2.5]; }
+export fn reading() -> types::Reading { return types::Reading { valid: true, base: 10.0 }; }
+fn fold(values: [f64; 3], reading: types::Reading) -> types::Outcome {
+    if !reading.valid { return types::Outcome::Invalid { code: 7 }; }
+    return types::Outcome::Value { count: 3, total: reading.base + values[0] + values[1] + values[2] };
+}
+export fn summarize(values: [f64; 3], reading: types::Reading) -> types::Outcome {
+    return fold(values, reading);
+}
+export fn count(outcome: types::Outcome) -> i64 {
+    match outcome {
+        types::Outcome::Value { total: number, count: count } => { return count; },
+        types::Outcome::Invalid { code: error } => { return 0 - error; },
+    }
+}
+export fn report(outcome: types::Outcome) -> i64 {
+    match outcome {
+        types::Outcome::Value { total: number, count: count } => { print(number); return count; },
+        types::Outcome::Invalid { code: error } => { return 0 - error; },
+    }
+}

@@ -1,0 +1,7 @@
+export trait Forward {
+    fn forward(value: Self) -> Self;
+}
+
+export trait Summarize {
+    fn summarize(value: Self) -> i64;
+}

@@ -1,0 +1,18 @@
+import producer;
+import types;
+fn main() -> i64 { return 0; }
+fn test_nested_transfer() -> i64 {
+    let outcome: types::Outcome = producer::samples();
+    match outcome {
+        types::Outcome::Data { batch: batch } => {
+            let values: [f64; 3] = batch.values;
+            let stats: types::Stats = batch.stats;
+            let view: &[f64] = &values;
+            if stats.base + view[0] + view[1] + view[2] != 15.5 { return 1; }
+            if stats.count != 3 { return 2; }
+            if f64_bits(stats.marker) != f64_bits(-0.0) { return 3; }
+            return 0;
+        },
+        types::Outcome::Invalid { code: error } => { return 4; },
+    }
+}

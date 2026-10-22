@@ -1,0 +1,32 @@
+# Flutter regenerates these files with LF on every host. Match its exact output
+# so Windows autocrlf does not report content-identical build inputs as dirty.
+linux/flutter/generated_plugin_registrant.cc text eol=lf
+linux/flutter/generated_plugin_registrant.h text eol=lf
+linux/flutter/generated_plugins.cmake text eol=lf
+macos/Flutter/GeneratedPluginRegistrant.swift text eol=lf
+windows/flutter/generated_plugin_registrant.cc text eol=lf
+windows/flutter/generated_plugin_registrant.h text eol=lf
+windows/flutter/generated_plugins.cmake text eol=lf
+
+# This evidence index hashes exact retained bytes, including original newlines.
+docs/evidence/windows-full-implementation-2026-10-10/** -text
+docs/evidence/windows-managed-content-2026-10-10/** -text
+docs/evidence/windows-staging-discard-2026-10-10/** -text
+docs/evidence/windows-artwork-wip-2026-10-11/** -text
+docs/evidence/windows-artwork-checkpoint-2026-10-11/** -text
+docs/evidence/windows-artwork-continuation-2026-10-11/** -text
+docs/evidence/windows-atomic-admission-2026-10-11/** -text
+docs/evidence/windows-artwork-acceptance-2026-10-11/** -text
+docs/evidence/windows-manifest-admission-2026-10-11/** -text
+docs/evidence/windows-website-ui-2026-10-11/** -text
+docs/evidence/windows-managed-transfer-2026-10-12/** -text whitespace=cr-at-eol
+docs/evidence/windows-managed-transfer-2026-10-12/**/failure.txt -diff
+docs/evidence/windows-managed-transfer-2026-10-12/**/*.log.txt -diff
+docs/evidence/windows-transfer-audit-2026-10-12/** -text whitespace=cr-at-eol
+docs/evidence/windows-transfer-audit-2026-10-12/raw/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+docs/evidence/windows-transfer-audit-2026-10-12/**/*.log -diff
+docs/evidence/windows-phases-2026-10-12/** -text whitespace=cr-at-eol
+docs/evidence/windows-phases-2026-10-12/**/*.log -diff
+
+# Preserve pre-migration contributor guidance byte-for-byte.
+CONTRIBUTOR_GUIDANCE_HISTORY.md -text whitespace=cr-at-eol

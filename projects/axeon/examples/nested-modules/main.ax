@@ -1,0 +1,16 @@
+import producer;
+import types;
+fn main() -> i64 {
+    let outcome: types::Outcome = producer::samples();
+    match outcome {
+        types::Outcome::Data { batch: batch } => {
+            let values: [f64; 3] = batch.values;
+            let stats: types::Stats = batch.stats;
+            let view: &[f64] = &values;
+            print(stats.base + view[0] + view[1] + view[2]);
+            print(stats.marker);
+            return stats.count;
+        },
+        types::Outcome::Invalid { code: error } => { return 0 - error; },
+    }
+}

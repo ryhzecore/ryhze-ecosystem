@@ -1,0 +1,86 @@
+---
+import Icon from './Icon.astro';
+import type { IconName } from '@/data/icons';
+export interface DropdownItem {
+  label: string;
+  href: string;
+  description?: string;
+  icon: IconName;
+  current?: 'page' | undefined;
+}
+interface Props {
+  id: string;
+  label: string;
+  heading?: string;
+  items?: readonly DropdownItem[];
+  footer?: { label: string; href: string };
+  variant?: 'primary' | 'outline';
+  align?: 'start' | 'end';
+  size?: 'compact' | 'wide';
+  class?: string;
+  trigger?: 'button' | 'menu';
+}
+const {
+  id,
+  label,
+  heading,
+  items = [],
+  footer,
+  variant = 'primary',
+  align = 'start',
+  size = 'compact',
+  class: className,
+  trigger = 'button',
+} = Astro.props;
+---
+
+<details
+  class:list={['dropdown', `dropdown--${align}`, `dropdown--${size}`, className]}
+  data-dropdown
+>
+  <summary
+    class:list={['button', `button--${variant}`, { 'menu-trigger': trigger === 'menu' }]}
+    aria-controls={id}
+    aria-label={trigger === 'menu' ? label : undefined}
+  >
+    {trigger === 'menu' ? (
+      <span class="menu-trigger-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
+    ) : (
+      <>
+        {label}
+        <Icon name="down" />
+      </>
+    )}
+  </summary>
+  <div class="dropdown-frame" id={id}>
+    {heading && <p class="dropdown-heading">{heading}</p>}
+    {items.length > 0 && (
+      <ul class="dropdown-list">
+        {items.map((item) => (
+          <li>
+            <a class="dropdown-item" href={item.href} aria-current={item.current}>
+              <Icon name={item.icon} />
+              <span>
+                {item.label}
+                {item.description && <small>{item.description}</small>}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+    {Astro.slots.has('default') && (
+      <div class="dropdown-content">
+        <slot />
+      </div>
+    )}
+    {footer && (
+      <a class="dropdown-footer" href={footer.href}>
+        {footer.label}
+      </a>
+    )}
+  </div>
+</details>

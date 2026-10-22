@@ -1,0 +1,16 @@
+[package]
+name = "axeon-tensor-runtime"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "Internal hosted tensor ABI for compiler-generated Axeon programs"
+
+[lib]
+name = "axeon_tensor_runtime"
+crate-type = ["staticlib", "rlib"]
+
+[dependencies]
+axeon-numerics = { path = "../axeon-numerics" }
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"

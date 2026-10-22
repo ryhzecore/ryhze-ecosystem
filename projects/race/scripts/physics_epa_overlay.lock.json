@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "patch": "race-jolt-5.6.0-epa-capacity-256-v2",
+  "upstream_commit": "e77f175595e64cb44218cc9d9d56fc365ad0e36a",
+  "source": "Jolt/Geometry/EPAConvexHullBuilder.h",
+  "upstream_sha256": "14c39a6a9445c155a37db198aa94e27f080d5b73bbe8f8d282bd0b5b75baae06",
+  "derived_sha256": "0dc60d9d18c10b7b96c1f4e11e7bc9fd69d92f975266000e280304ea243bb982",
+  "maximum_triangles": 256,
+  "maximum_edges": 256,
+  "maximum_points": 128,
+  "scope": "Approved 16 October 2026; isolated qualification only. Original SDK bytes remain immutable."
+}

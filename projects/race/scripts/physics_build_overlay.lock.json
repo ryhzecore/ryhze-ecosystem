@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "patch": "race-jolt-5.6.0-tree-stack-256-v1",
+  "upstream_commit": "e77f175595e64cb44218cc9d9d56fc365ad0e36a",
+  "source": "Jolt/Physics/Collision/BroadPhase/QuadTree.cpp",
+  "upstream_sha256": "375db10d0d7bff7b4ebfa50df8ef825e2f3a656a74c9f6797b72a41eff96d409",
+  "derived_sha256": "60fa891adfc7c7676d83ee69f3cf688678096694af0418bacb35e5aa0390c2ad",
+  "maximum_bodies": 256,
+  "scope": "Isolated qualification only. Original acquired dependency bytes remain immutable."
+}

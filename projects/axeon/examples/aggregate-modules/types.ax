@@ -1,0 +1,3 @@
+// Fields and variants are part of the explicit public contract.
+export record Reading { base: f64, valid: bool }
+export union Outcome { Value { total: f64, count: i64 }, Invalid { code: i64 } }

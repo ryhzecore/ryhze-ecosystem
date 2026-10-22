@@ -1,0 +1,27 @@
+---
+import Icon from './Icon.astro';
+import Button from './Button.astro';
+import KnockoutLabel from './KnockoutLabel.astro';
+import type { Discovery } from '@/data/site';
+interface Props {
+  card: Discovery;
+}
+const { card } = Astro.props;
+---
+
+<a class:list={['discovery-card', `discovery-card--${card.number}`]} href={card.href}>
+  <div class="card-top">
+    <KnockoutLabel label={card.brand} id={`discovery-label-${card.number}`} />
+    <Icon name={card.icon} class="card-icon" />
+  </div>
+  <span class="card-number" aria-hidden="true">
+    {card.number}
+  </span>
+  <div class="card-copy">
+    <h3>{card.title}</h3>
+    <p>{card.description}</p>
+    <Button as="span" variant="secondary">
+      {card.action}
+    </Button>
+  </div>
+</a>

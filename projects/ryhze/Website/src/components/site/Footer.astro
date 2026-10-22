@@ -1,0 +1,27 @@
+---
+import Brand from './Brand.astro';
+import { site } from '@/data/site';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <Brand footer />
+        <p>{site.tagline}</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="/race/">RACE</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy &amp; cookies</a>
+        <a href="/legal/">Terms &amp; licences</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>Made for your next favourite.</span>
+      <span>
+        Website V{site.version} · PRE-ALPHA · © {site.year} Ryhze. All rights reserved.
+      </span>
+    </div>
+  </div>
+</footer>

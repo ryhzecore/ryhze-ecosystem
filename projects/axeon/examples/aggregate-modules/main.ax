@@ -1,0 +1,8 @@
+import statistics;
+import types;
+fn main() -> i64 {
+    let samples: [f64; 3] = statistics::samples();
+    let reading: types::Reading = statistics::reading();
+    let result: types::Outcome = statistics::summarize(samples, reading);
+    return statistics::report(result);
+}

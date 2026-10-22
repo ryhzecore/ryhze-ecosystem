@@ -1,0 +1,18 @@
+import actions;
+import types;
+fn main() -> i64 {
+    let mark: () = actions::announce(1);
+    let copied: () = mark;
+    let completion: types::Completion = actions::complete(mark, 42);
+    if !actions::verify(copied) { return 1; }
+    let outcome: types::Outcome = actions::ready(completion);
+    match outcome {
+        types::Outcome::Ready { value: value } => {
+            if actions::announce(2) != actions::announce(3) { return 2; }
+            if !actions::verify(value.done) { return 3; }
+            print(value.value);
+            return 0;
+        },
+        types::Outcome::Empty { done: done } => { return 4; },
+    }
+}

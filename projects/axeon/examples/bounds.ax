@@ -1,0 +1,11 @@
+fn rhs() -> i64 {
+    print(999);
+    return 42;
+}
+
+fn main() -> i64 {
+    let mut data: [i64; 2] = [10, 20];
+    print(7);
+    data[2] = rhs();
+    return 0;
+}

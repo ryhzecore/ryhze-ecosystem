@@ -1,0 +1,17 @@
+import packets;
+
+fn main() -> i64 {
+    // The generic path transfers the complete array without converting its values.
+    let input: [i64; 3] = [9007199254740993, 20, 22];
+    let packet: packets::Packet<[i64; 3]> = packets::pack::<[i64; 3]>(7, input);
+    let fallback: [i64; 3] = [0, 0, 0];
+    let values: [i64; 3] = packets::payload_or::<[i64; 3]>(packet, fallback);
+    if values[0] != 9007199254740993 { return 1; }
+    print(values[1] + values[2]);
+
+    let absent: packets::Packet<f64> = packets::Packet::<f64>::Missing { sequence: 8 };
+    let zero: f64 = packets::payload_or::<f64>(absent, -0.0);
+    if f64_bits(zero) != -9223372036854775808 { return 2; }
+    print(f64_bits(zero));
+    return 0;
+}

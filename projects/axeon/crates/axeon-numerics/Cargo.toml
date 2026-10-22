@@ -1,0 +1,11 @@
+[package]
+name = "axeon-numerics"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "Bounded CPU numerical storage for the Axeon Rust library milestone"
+
+[dependencies]
+
+[lints.rust]
+unsafe_code = "forbid"

@@ -1,0 +1,17 @@
+import actions;
+import types;
+fn main() -> i64 { return 0; }
+fn test_unit_flow() -> i64 {
+    let mark: () = ();
+    let completion: types::Completion = actions::complete(mark, 42);
+    let outcome: types::Outcome = actions::ready(completion);
+    match outcome {
+        types::Outcome::Ready { value: value } => {
+            if value.value != 42 { return 1; }
+            if value.done != mark { return 2; }
+            if !actions::verify(mark) { return 3; }
+            return 0;
+        },
+        types::Outcome::Empty { done: done } => { return 4; },
+    }
+}

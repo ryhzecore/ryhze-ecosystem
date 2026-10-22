@@ -1,0 +1,103 @@
+---
+import {
+  coreServices,
+  runtimeAreas,
+  authoringAreas,
+  outputAreas,
+  sceneMilestone,
+  assetsMilestone,
+} from '@/data/race';
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+const Heading = compact ? 'h3' : 'h2';
+const groups = [
+  ...(!compact ? [{ id: 'services', title: 'Core services', names: coreServices }] : []),
+  {
+    id: 'runtime',
+    title: 'Runtime & Modules',
+    names: compact ? ['Scene & World', 'Future runtime areas'] : runtimeAreas,
+  },
+  { id: 'authoring', title: 'Later authoring', names: authoringAreas },
+  {
+    id: 'packaging',
+    title: 'Platform, packaging and export',
+    names: ['Platform/Packaging/Export'],
+  },
+  { id: 'outputs', title: 'Project outputs', names: outputAreas },
+];
+---
+
+<figure
+  class:list={['architecture-flow', { 'architecture-flow--compact': compact }]}
+  aria-label={compact ? 'Compact RACE architecture overview' : 'RACE architecture overview'}
+>
+  <div class="flow-root">
+    <div class="flow-hub flow-node flow-node--current" data-node="core">
+      <Heading>Core</Heading>
+      <p class="flow-status">Implemented and tested on Linux</p>
+      {compact && <p class="flow-status">Eight shared services</p>}
+    </div>
+    {groups.map(({ id, title, names }) => (
+      <section class="flow-stage" data-stage={id} aria-label={title}>
+        {id !== 'services' && (
+          <div
+            class:list={['flow-hub', 'flow-node', { 'flow-node--current': id === 'runtime' }]}
+            data-node={id}
+          >
+            <Heading class:list={{ 'flow-wrap': id === 'authoring' || id === 'packaging' }}>
+              {title}
+            </Heading>
+            <p class="flow-status">
+              {id === 'runtime' ? 'Shared Core foundation' : 'Under Development'}
+            </p>
+          </div>
+        )}
+        <div
+          class:list={[
+            'flow-columns',
+            { 'flow-columns--single': names.length === 1, 'flow-stage': id !== 'services' },
+          ]}
+        >
+          {[names.slice(0, Math.ceil(names.length / 2)), names.slice(Math.ceil(names.length / 2))]
+            .filter((column) => column.length)
+            .map((column) => (
+              <ul class="flow-rail">
+                {column.map((name) => {
+                  const current = id === 'services';
+                  const milestone =
+                    name === 'Scene & World'
+                      ? sceneMilestone
+                      : name === 'Assets & Resources'
+                        ? assetsMilestone
+                        : undefined;
+                  return (
+                    <li
+                      class:list={[
+                        'flow-node',
+                        { 'flow-node--current': current, 'flow-node--pending': !!milestone },
+                      ]}
+                      data-node={name}
+                    >
+                      <p class="flow-name">{name}</p>
+                      {id !== 'services' && (
+                        <p class="flow-status">
+                          {milestone ? milestone.status : 'Under Development'}
+                        </p>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            ))}
+        </div>
+      </section>
+    ))}
+  </div>
+  <figcaption>
+    Conceptual connections, not an approved dependency graph. Each runtime area branches from the
+    shared Core foundation, not from Scene &amp; World or a neighbouring area. Grey areas are Under
+    Development.
+  </figcaption>
+</figure>
